@@ -119,6 +119,43 @@
             "time": "2021-01-20T22:51:39+00:00"
         },
         {
+            "name": "dnoegel/php-xdg-base-dir",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dnoegel/php-xdg-base-dir.git",
+                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~7.0|~6.0|~5.0|~4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XdgBaseDir\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "implementation of xdg base directory specification for php",
+            "support": {
+                "issues": "https://github.com/dnoegel/php-xdg-base-dir/issues",
+                "source": "https://github.com/dnoegel/php-xdg-base-dir/tree/v0.1.1"
+            },
+            "time": "2019-12-04T15:06:13+00:00"
+        },
+        {
             "name": "doctrine/inflector",
             "version": "2.0.3",
             "source": {
@@ -2537,7 +2574,6 @@
         },
         {
             "name": "symfony/console",
-
             "version": "v5.2.8",
             "source": {
                 "type": "git",
@@ -2548,7 +2584,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/864568fdc0208b3eba3638b6000b69d2386e6768",
                 "reference": "864568fdc0208b3eba3638b6000b69d2386e6768",
-
                 "shasum": ""
             },
             "require": {
@@ -2770,7 +2805,6 @@
         },
         {
             "name": "symfony/error-handler",
-
             "version": "v5.2.8",
             "source": {
                 "type": "git",
@@ -2781,7 +2815,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/error-handler/zipball/1416bc16317a8188aabde251afef7618bf4687ac",
                 "reference": "1416bc16317a8188aabde251afef7618bf4687ac",
-
                 "shasum": ""
             },
             "require": {
@@ -2821,9 +2854,7 @@
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
-
                 "source": "https://github.com/symfony/error-handler/tree/v5.2.8"
-
             },
             "funding": [
                 {
@@ -2839,9 +2870,7 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2021-05-07T13:42:21+00:00"
-
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3402,9 +3431,7 @@
                 "mime-type"
             ],
             "support": {
-
                 "source": "https://github.com/symfony/mime/tree/v5.2.9"
-
             },
             "funding": [
                 {
@@ -3420,9 +3447,7 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2021-05-16T13:07:46+00:00"
-
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -4217,7 +4242,6 @@
         },
         {
             "name": "symfony/routing",
-
             "version": "v5.2.9",
             "source": {
                 "type": "git",
@@ -4228,7 +4252,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/routing/zipball/4a7b2bf5e1221be1902b6853743a9bb317f6925e",
                 "reference": "4a7b2bf5e1221be1902b6853743a9bb317f6925e",
-
                 "shasum": ""
             },
             "require": {
@@ -4288,9 +4311,7 @@
                 "url"
             ],
             "support": {
-
                 "source": "https://github.com/symfony/routing/tree/v5.2.9"
-
             },
             "funding": [
                 {
@@ -4306,9 +4327,7 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2021-05-16T13:07:46+00:00"
-
         },
         {
             "name": "symfony/service-contracts",

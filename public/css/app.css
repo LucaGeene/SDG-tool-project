@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -7,6 +7,30 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+#subgoal {
+    color: white;
+}
+.panel-heading {
+    padding: 0;
+    border:0;
+}
+.panel-title>a, .panel-title>a:active{
+    display:block;
+    padding:15px;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    word-spacing:3px;
+    text-decoration:none;
+}
+.panel-heading  a:before {
+    content: "\21a7";
+    float: right;
+    font-size: 25px;
+}
 
 :root {
   --blue: #3490dc;
@@ -213,6 +237,11 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+}
+
+img .goal {
+    float: right;
+    text-align: justify;
 }
 
 svg {
