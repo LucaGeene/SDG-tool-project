@@ -19,11 +19,11 @@ class ProjectFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
+            'verified' => $this->faker->numberBetween(0,1),
             'goalId' => $this->faker->numberBetween(1,17),
-
             'title' => $this->faker->name(),
             'excerpt' => $this->faker->text(200),
             'body' => $this->faker->text(1000)
