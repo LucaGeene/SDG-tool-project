@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <header>
 
 
@@ -65,7 +67,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <li>{{$project->title}}</li>
+                                            {{$project->title}}
                                         </h5>
                                         <p class="card-text">
                                             {{$project->excerpt}}
@@ -83,380 +85,77 @@
                 <!--Section: Content-->
 
                 <hr class="my-3"/>
+                <div>
+                    <h1 class="bg-light">Bijdrage van projecten aan doelen</h1>
+                    <canvas id="countProjectsChart"></canvas>
 
-                <figure>
-                    <div class="graphic">
+                    <script>
+                        const labels = [
+                            @foreach($goals as $goal)
+                                '{{$goal->title}}',
+                            @endforeach
+                        ];
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Aantal projecten/activiteiten',
+                                backgroundColor: [
+                                    @foreach($goals as $goal)
+                                        '{{$goal->color}}40',
+                                    @endforeach
+                                ],
+                                borderColor: [
+                                    @foreach($goals as $goal)
+                                        '{{$goal->color}}',
+                                    @endforeach
+                                ],
+                                borderWidth: 1,
+                                data: [
+                                    @foreach($projects as $project)
 
-                        <div class="row">
-                            <h6>Doel 1</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-           <span class="value">57%</span>
-        </span><span class="block" title="4-6 Maanden">
-           <span class="value">3%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-           <span class="value">8%</span>
-        </span>
-                                <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
+                                        @endforeach
+                                    10, 10, 10, 10, 10, 30, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                            }]
+                        };
+                        const config = {
+                                type: 'bar',
+                                data,
+                                options: {
+                                    // onClick: function(context) {
+                                    //     let index = context.findIndexFrom;
+                                    //     alert(index);
+                                    // }
+                            },
+                        };
 
-                        <div class="row">
-                            <h6>Doel 2</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-            <span class="value">29%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-            <span class="value">21%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">19%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
+                        // function goToGoal(evt, item) {
+                        //     let id = item[0]['_model'].label;
+                        //     this.selectedIndex = id;
+                        //     alert('id');
+                        // }
 
-                        <div class="row">
-                            <h6>Doel 3</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
+                        // === include 'setup' then 'config' above ===
 
-                        <div class="row">
-                            <h6>Doel 4</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
+                        let myChart = new Chart(
+                            document.getElementById('countProjectsChart'),
+                            config
+                        );
 
-                        <div class="row">
-                            <h6>Doel 5</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
+                        let g = document.getElementById('countProjectsChart');
+                        for (let i = 0, len = g.children.length; i < len; i++)
+                        {
 
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">2</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h6>Doel 6</h6>
-                            <div class="chart">
-        <span class="block" title="0-3 Maanden">
-             <span class="value">8%</span>
-        </span>
-                                <span class="block" title="4-6 Maanden">
-             <span class="value">11%</span>
-        </span>
-                                <span class="block" title="7-12 Maanden">
-             <span class="value">34%</span>
-        </span>
-                                 <span class="block" title="1-2 Jaar">
-           <span class="value">2%</span>
-        </span>
-                                <span class="block" title="2+ Jaar">
-           <span class="value">2%</span>
-        </span>
-                            </div>
-                        </div>
+                            // TODO add clickable bars, to redirect to clicked goal.
+                            (function(index){
+                                g.children[i].onclick = function(){
+                                    alert('lol')  ;
+                                }
 
-                    </div>
-
-                    <div class="x-axis">
-                        <h3>X-Axis Title</h3>
-                        <ul class="legend">
-                            <li>0-3 Maanden</li>
-                            <li>4-6 Maanden</li>
-                            <li>7-12 Maanden</li>
-                            <li>1-2 jaar</li>
-                            <li>2+ Jaar</li>
-                        </ul>
-                    </div>
-
-                </figure>
-                {{--graph--}}
-                <script>
-                    $(document).ready(function () {
-                        $('.value').each(function () {
-                            let text = $(this).text();
-                            $(this).parent().css('width', text);
-                        });
-
-                        $('.block').tooltip();
-                    });
-                </script>
+                            })(i);
+                        }
+                    </script>
+                </div>
+                <hr class="my-3"/>
 
             </div>
         </main>
