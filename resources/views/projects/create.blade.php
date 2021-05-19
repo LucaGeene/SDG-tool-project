@@ -41,7 +41,7 @@
                                 <div class="form-group row">
                                     <label for="body" class="col-md-4 col-form-label text-md-right">Body:</label><br>
                                     <textarea type="text" id="body" name="body">{{old('body')}}</textarea><br>
-                                    @if($errors->has('title'))
+                                    @if($errors->has('body'))
                                         <p>{{$errors->first('body')}}</p>
                                     @endif
                                 </div>
