@@ -45,6 +45,12 @@ class ProjectsController extends Controller
         $project->excerpt = request('excerpt');
         $project->body = request('body');
 
+        $test = request('verified');
+        if ($test  == "1234"){
+            $project->verified = 1;
+        }
+
+
         $project->save();
 
         return redirect('projecten');

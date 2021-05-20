@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\goal;
 use App\Models\Project;
@@ -27,7 +28,7 @@ class GoalController extends Controller
     public function show($id)
     {
 
-        return view('goals.show', ['id'=>$id, 'projects'=> Project::latest()->get()]);
+        return view('goals.show', ['id'=>$id, 'projects'=> Project::latest()->get(),'users'=>User::latest()->get()]);
     }
 
 }
