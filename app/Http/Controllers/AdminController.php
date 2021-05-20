@@ -22,7 +22,7 @@ class adminController extends Controller
         $filter[0] = $verify;
         $filter[1] = $goalid;
 
-        if (count($filter)>0) {
+        if ($filter[0] ==null && $filter[1] == null) {
             return view('admin', [
                 'projects' => Project::latest()->get(), 'filterarray' => $filter
 
