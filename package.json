@@ -27,7 +27,7 @@
         "react-dom": "^16.2.0",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.32.13",
-        "sass-loader": "^8.0.0",
+        "sass-loader": "^11.1.1",
         "webpack": "^5.37.1"
     },
     "dependencies": {}
