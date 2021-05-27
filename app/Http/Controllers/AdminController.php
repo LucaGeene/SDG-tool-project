@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+
 class adminController extends Controller
 {
     public function __construct()
@@ -11,20 +12,59 @@ class adminController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
-        return view('admin',[
-            'projects'=> Project::latest()->get()
-        ]);
+    public function index(Request $request)
+    {
+
+
+        $verify = $request->input('verify');
+        $goalid = $request->input('goalid');
+        $filter = array();
+        $filter[0] = $verify;
+        $filter[1] = $goalid;
+
+        if ($filter[0] ==null && $filter[1] == null) {
+            return view('admin', [
+                'projects' => Project::latest()->get(), 'filterarray' => $filter
+
+            ]);
+        } elseif ($filter[1] == null) {
+            return view('admin', [
+                'projects' => Project::latest()
+                    ->where('verified', '=', $filter[0])
+                    ->get(),
+                'filterarray' => $filter
+
+            ]);
+        } elseif ($filter[0] == null) {
+            return view('admin', [
+                'projects' => Project::latest()
+                    ->where('goalid', '=', $filter[1])
+                    ->get(),
+                'filterarray' => $filter
+
+            ]);
+
+        } else {
+            return view('admin', [
+                'projects' => Project::latest()
+                    ->where('verified', '=', $filter[0])
+                    ->where('goalid', '=', $filter[1])
+                    ->get(),
+                'filterarray' => $filter
+
+            ]);
+        }
+
 
     }
 
     public function show($id)
     {
-       $project = Project::find($id);
 
-       return view('admin.show', ['project' => $project]);
+        $project = Project::find($id);
+
+        return view('admin.show', ['project' => $project]);
     }
-
 
 
     public function store(Request $request)
@@ -52,7 +92,7 @@ class adminController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('admin.edit',['project' => $project]);
+        return view('admin.edit', ['project' => $project]);
     }
 
     public function update($id)

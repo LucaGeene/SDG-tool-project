@@ -73,6 +73,11 @@
                                     </select>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label for="verified" class="col-md-4 col-form-label text-md-right">verified:</label><br>
+                                    <textarea type="text" id="verified" name="verified">{{"0"}}</textarea><br>
+
+                                </div>
 
                                 <div class="text-center">
                                     <input type="submit" value="Submit">

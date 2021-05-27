@@ -5,7 +5,7 @@
         <img src="{{asset("assets/$id.png")}}" >
         <div class="container">
 
-
+    <h5>{{$users->name}}</h5>
                 <div class="row">
                     <ul>
                         @foreach($projects as $project)

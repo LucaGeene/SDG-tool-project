@@ -10,18 +10,25 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "@babel/preset-react": "^7.0.0",
+        "@babel/core": "^7.14.3",
+        "@babel/preset-env": "^7.14.2",
+        "@babel/preset-react": "^7.13.13",
         "axios": "^0.21",
+        "babel-loader": "^8.2.2",
         "bootstrap": "^4.0.0",
         "jquery": "^3.2",
-        "laravel-mix": "^6.0.6",
+        "laravel-mix": "^6.0.19",
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
-        "postcss": "^8.1.14",
+
+        "postcss": "^8.2.15",
+
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
-        "sass-loader": "^8.0.0"
-    }
+        "sass": "^1.32.13",
+        "sass-loader": "^8.0.0",
+        "webpack": "^5.37.1"
+    },
+    "dependencies": {}
 }
