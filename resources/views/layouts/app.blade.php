@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-md navbar navbar-dark bg-secondary shadow-sm">
         <div class="container col-9">
             <a class="navbar-brand font-weight-bold h1" href="{{ url('/') }}">
-                dashboard
+                Dashboard
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -78,6 +78,7 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                     <a class="dropdown-item" href="{{ url('/admin') }}">admin page</a>
+                                    <a class="dropdown-item" href="{{ url('/opleidingen/create') }}">Voeg opleiding toe</a>
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

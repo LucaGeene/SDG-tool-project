@@ -5,6 +5,7 @@ use App\Http\Controllers\projectsController;
 use App\Http\Controllers\goalController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\EducationController;
 use App\Models\Project;
 /*
 |--------------------------------------------------------------------------
@@ -54,16 +55,14 @@ Auth::routes();
 
 //routes voor doelen
 
+
 Route::get('doelen', [goalController::class, 'index']);
 Route::get('doelen/{goal}', [goalController::class, 'show']);
 
+
 //routes voor opleidingen
-Route::get('/opleidingen', function () {
-    return view('educations');
-});
 
-
-
+Route::resource('/opleidingen', EducationController::class);
 
 //routes voor projecten
 
