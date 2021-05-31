@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <header>
 
 
@@ -65,7 +67,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <li>{{$project->title}}</li>
+                                            {{$project->title}}
                                         </h5>
                                         <p class="card-text">
                                             {{$project->excerpt}}
@@ -83,7 +85,77 @@
                 <!--Section: Content-->
 
                 <hr class="my-3"/>
+                <div>
+                    <h1 class="bg-light">Bijdrage van projecten aan doelen</h1>
+                    <canvas id="countProjectsChart"></canvas>
 
+                    <script>
+                        const labels = [
+                            @foreach($goals as $goal)
+                                '{{$goal->title}}',
+                            @endforeach
+                        ];
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Aantal projecten/activiteiten',
+                                backgroundColor: [
+                                    @foreach($goals as $goal)
+                                        '{{$goal->color}}40',
+                                    @endforeach
+                                ],
+                                borderColor: [
+                                    @foreach($goals as $goal)
+                                        '{{$goal->color}}',
+                                    @endforeach
+                                ],
+                                borderWidth: 1,
+                                data: [
+                                    @foreach($projects as $project)
+
+                                        @endforeach
+                                    10, 10, 10, 10, 10, 30, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                            }]
+                        };
+                        const config = {
+                                type: 'bar',
+                                data,
+                                options: {
+                                    // onClick: function(context) {
+                                    //     let index = context.findIndexFrom;
+                                    //     alert(index);
+                                    // }
+                            },
+                        };
+
+                        // function goToGoal(evt, item) {
+                        //     let id = item[0]['_model'].label;
+                        //     this.selectedIndex = id;
+                        //     alert('id');
+                        // }
+
+                        // === include 'setup' then 'config' above ===
+
+                        let myChart = new Chart(
+                            document.getElementById('countProjectsChart'),
+                            config
+                        );
+
+                        let g = document.getElementById('countProjectsChart');
+                        for (let i = 0, len = g.children.length; i < len; i++)
+                        {
+
+                            // TODO add clickable bars, to redirect to clicked goal.
+                            (function(index){
+                                g.children[i].onclick = function(){
+                                    alert('lol')  ;
+                                }
+
+                            })(i);
+                        }
+                    </script>
+                </div>
+                <hr class="my-3"/>
 
             </div>
         </main>
