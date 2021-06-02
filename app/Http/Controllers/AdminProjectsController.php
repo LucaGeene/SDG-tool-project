@@ -14,8 +14,6 @@ class AdminProjectsController extends Controller
 
     public function index(Request $request)
     {
-
-
         $verify = $request->input('verify');
         $goalid = $request->input('goalid');
         $filter = array();
@@ -23,53 +21,43 @@ class AdminProjectsController extends Controller
         $filter[1] = $goalid;
 
         if ($filter[0] ==null && $filter[1] == null) {
-            return view('adminProjects', [
+            return view('adminProjects.index', [
                 'projects' => Project::latest()->get(), 'filterarray' => $filter
-
             ]);
         } elseif ($filter[1] == null) {
-            return view('adminProjects', [
+            return view('adminProjects.index', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->get(),
                 'filterarray' => $filter
-
             ]);
         } elseif ($filter[0] == null) {
-            return view('adminProjects', [
+            return view('adminProjects.index', [
                 'projects' => Project::latest()
                     ->where('goalid', '=', $filter[1])
                     ->get(),
                 'filterarray' => $filter
-
             ]);
-
         } else {
-            return view('adminProjects', [
+            return view('adminProjects.index', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->where('goalid', '=', $filter[1])
                     ->get(),
                 'filterarray' => $filter
-
             ]);
         }
-
-
     }
 
     public function show($id)
     {
-
         $project = Project::find($id);
 
         return view('adminProjects.show', ['project' => $project]);
     }
 
-
     public function store(Request $request)
     {
-
         request()->validate([
             'title' => 'required',
             'goalid' => 'required',
@@ -83,7 +71,6 @@ class AdminProjectsController extends Controller
         $project->excerpt = request('excerpt');
         $project->body = request('body');
         $project->verified = request('verified');
-
         $project->save();
 
         return redirect('huurders');
@@ -112,15 +99,14 @@ class AdminProjectsController extends Controller
         $project->goalid = request('goalid');
         $project->verified = request('verified');
         $project->save();
-        return redirect('adminProjects/' . $project->id);
-    }
 
+        return redirect('adminProjects.index/' . $project->id);
+    }
 
     public function destroy($id)
     {
         Project::find($id)->delete();
 
-
-        return redirect('adminProjects/');
+        return redirect('adminProjects.index/');
     }
 }

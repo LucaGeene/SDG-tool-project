@@ -8,10 +8,10 @@
                 <ul>
                     @foreach($projects as $project)
                         @if($project->verified == true)
-                        <div class="box">
-                            <li><a href="projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>
-                                <h5>{{$project->excerpt}}</h5></li>
-                        </div>
+                            <div class="box">
+                                <li><a href="projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>
+                                    <h5>{{$project->excerpt}}</h5></li>
+                            </div>
                         @endif
                     @endforeach
                 </ul>

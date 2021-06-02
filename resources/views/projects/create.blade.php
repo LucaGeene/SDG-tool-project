@@ -37,7 +37,6 @@
                                     </select>
                                 </div>
 
-
                                 <div class="form-group row">
                                     <label for="body" class="col-md-4 col-form-label text-md-right">Body:</label><br>
                                     <textarea type="text" id="body" name="body">{{old('body')}}</textarea><br>
@@ -45,7 +44,6 @@
                                         <p>{{$errors->first('body')}}</p>
                                     @endif
                                 </div>
-
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -83,7 +81,6 @@
                                     <input type="submit" value="Submit">
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ use League\CommonMark\Delimiter\Processor\EmphasisDelimiterProcessor;
 class EducationController extends Controller
 {
     public function index(){
-        return view('educations',[
+        return view('educations.index',[
             'educations'=> Education::latest()->get()
         ]);
     }
@@ -17,6 +17,7 @@ class EducationController extends Controller
     public function show($id)
     {
         $education = Education::find($id);
+
         return view( 'educations.show', ['education' => $education]);
     }
 }

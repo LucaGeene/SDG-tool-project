@@ -13,7 +13,7 @@ class AdminEducationsController extends Controller
     }
 
     public function index(){
-        return view('adminEducations',[
+        return view('adminEducations.index',[
             'educations'=> Education::latest()->get()
         ]);
     }
@@ -42,7 +42,7 @@ class AdminEducationsController extends Controller
         $education->body = request('body');
         $education->save();
 
-        return redirect('adminEducations');
+        return redirect('adminEducations.index');
     }
 
     public function edit($id)
@@ -64,7 +64,7 @@ class AdminEducationsController extends Controller
         $education->body = request('body');
         $education->save();
 
-        return redirect('adminEducations');
+        return redirect('adminEducations.index');
     }
 
     public function destroy($id)
@@ -72,6 +72,6 @@ class AdminEducationsController extends Controller
         $education = Education::find($id);
         $education->delete();
 
-        return redirect('/adminEducations');
+        return redirect('/adminEducations.index');
     }
 }
