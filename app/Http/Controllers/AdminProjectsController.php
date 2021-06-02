@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
-class adminController extends Controller
+class AdminProjectsController extends Controller
 {
     public function __construct()
     {
@@ -23,12 +23,12 @@ class adminController extends Controller
         $filter[1] = $goalid;
 
         if ($filter[0] ==null && $filter[1] == null) {
-            return view('admin', [
+            return view('adminProjects', [
                 'projects' => Project::latest()->get(), 'filterarray' => $filter
 
             ]);
         } elseif ($filter[1] == null) {
-            return view('admin', [
+            return view('adminProjects', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->get(),
@@ -36,7 +36,7 @@ class adminController extends Controller
 
             ]);
         } elseif ($filter[0] == null) {
-            return view('admin', [
+            return view('adminProjects', [
                 'projects' => Project::latest()
                     ->where('goalid', '=', $filter[1])
                     ->get(),
@@ -45,7 +45,7 @@ class adminController extends Controller
             ]);
 
         } else {
-            return view('admin', [
+            return view('adminProjects', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->where('goalid', '=', $filter[1])
@@ -63,7 +63,7 @@ class adminController extends Controller
 
         $project = Project::find($id);
 
-        return view('admin.show', ['project' => $project]);
+        return view('adminProjects.show', ['project' => $project]);
     }
 
 
@@ -92,7 +92,7 @@ class adminController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('admin.edit', ['project' => $project]);
+        return view('adminProjects.edit', ['project' => $project]);
     }
 
     public function update($id)
@@ -112,7 +112,7 @@ class adminController extends Controller
         $project->goalid = request('goalid');
         $project->verified = request('verified');
         $project->save();
-        return redirect('admin/' . $project->id);
+        return redirect('adminProjects/' . $project->id);
     }
 
 
@@ -121,6 +121,6 @@ class adminController extends Controller
         Project::find($id)->delete();
 
 
-        return redirect('admin/');
+        return redirect('adminProjects/');
     }
 }

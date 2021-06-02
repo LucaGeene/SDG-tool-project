@@ -3,7 +3,6 @@
 @section('content')
     <div class="container">
         <div class="row">
-
             <div class="col-md-8">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -20,10 +19,8 @@
                                     @endif
                                 </div>
 
-
                                 <div class="form-group row">
-                                    <label for="exerpt"
-                                           class="col-md-4 col-form-label text-md-right">Excerpt:</label><br>
+                                    <label for="exerpt" class="col-md-4 col-form-label text-md-right">Excerpt:</label><br>
                                     <textarea type="text" id="excerpt" name="excerpt">{{$project->excerpt}}</textarea><br>
                                     @if($errors->has('title'))
                                         <p>{{$errors->first('excerpt')}}</p>
@@ -49,15 +46,13 @@
                                 <div class="form-group row">
                                     <label for="verified" class="col-md-4 col-form-label text-md-right">verified:</label><br>
                                     <textarea type="text" id="verified" name="verified">{{$project->verified}}</textarea><br>
-
                                 </div>
 
                                 <div class="text-center">
-                                <input type="submit" value="Submit">
+                                    <input type="submit" value="Submit">
                                 </div>
+
                             </form>
-
-
                         </div>
                     </div>
                 </div>
@@ -72,7 +67,6 @@
                     </form>
                 </div>
             </div>
-
 
         </div>
     </div>

@@ -10,7 +10,7 @@
 
                     @foreach($projects as $project)
                         <div class="box">
-                            <li><a href="admin/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>
+                            <li><a href="adminProjects/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>
                                 <h5>{{$project->excerpt}}</h5></li>
                                 <h5>verified  {{$project->verified}}</h5>
                                 <h5>goalid  {{$project->goalid}}</h5>
@@ -58,7 +58,7 @@
                     <h5>verified:{{$filterarray[0]}}</h5>
 
                     <h5>goalid:{{$filterarray[1]}}</h5>
-                    <a href="{{ url('/admin') }}">Reset</a>
+                    <a href="{{ url('/adminProjects') }}">Reset</a>
 
                 </div>
             </div>

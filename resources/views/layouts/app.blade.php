@@ -79,8 +79,7 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -89,7 +88,8 @@
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
-                                    <a class="dropdown-item" href="{{ url('/admin') }}">admin page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminProjects') }}">Admin projects page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminEducations') }}">Admin educations page</a>
                                     <a class="dropdown-item" href="{{ url('/opleidingen/create') }}">Voeg opleiding toe</a>
                                 </a>
 
