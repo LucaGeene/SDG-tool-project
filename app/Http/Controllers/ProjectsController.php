@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+
 class ProjectsController extends Controller
 {
 
@@ -44,6 +45,12 @@ class ProjectsController extends Controller
         $project->title = request('title');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
+
+        $test = request('verified');
+        if ($test  == "1234"){
+            $project->verified = 1;
+        }
+
 
         $project->save();
 

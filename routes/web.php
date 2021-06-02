@@ -5,7 +5,9 @@ use App\Http\Controllers\projectsController;
 use App\Http\Controllers\goalController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\EducationController;
 use App\Models\Project;
+use App\Models\Goal;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,7 @@ Route::get('/', function () {
     $projects = Project::latest()->get();
 
 
+    $goals = Goal::all();
 
     $fprojects = array();
 
@@ -35,7 +38,7 @@ Route::get('/', function () {
     for ($i = 0; $i < 3; $i++) {
         $ffprojects[$i] = $fprojects[$i];
     }
-        return view('welcome', ['projects' => $ffprojects]);
+        return view('welcome', ['projects' => $ffprojects, 'goals' => $goals]);
 
 
 
@@ -58,12 +61,8 @@ Route::get('doelen', [goalController::class, 'index']);
 Route::get('doelen/{goal}', [goalController::class, 'show']);
 
 //routes voor opleidingen
-Route::get('/opleidingen', function () {
-    return view('educations');
-});
 
-
-
+Route::resource('/opleidingen', EducationController::class);
 
 //routes voor projecten
 

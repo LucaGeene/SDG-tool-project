@@ -15,6 +15,10 @@ class CreateGoalsTable extends Migration
     {
         Schema::create('goals', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('color');
+            $table->string('header');
+            $table->text('description');
             $table->timestamps();
         });
     }
