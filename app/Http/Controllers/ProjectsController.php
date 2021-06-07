@@ -8,11 +8,55 @@ use App\Models\Project;
 class ProjectsController extends Controller
 {
 
-    public function index(){
-        return view('projects',[
-            'projects'=> Project::latest()->get()
-        ]);
+//    public function index(){
+//        return view('projects',[
+//            'projects'=> Project::latest()->get()
+//        ]);
+//
+//    }
 
+    public function index(Request $request)
+    {
+
+
+        $verify = $request->input('verify');
+        $goalid = $request->input('goalid');
+        $filter = array();
+        $filter[0] = $verify;
+        $filter[1] = $goalid;
+
+        if ($filter[0] == null && $filter[1] == null) {
+            return view('projects', [
+                'projects' => Project::latest()->get(), 'filterarray' => $filter
+
+            ]);
+        } elseif ($filter[1] == null) {
+            return view('projects', [
+                'projects' => Project::latest()
+                    ->where('verified', '=', $filter[0])
+                    ->get(),
+                'filterarray' => $filter
+
+            ]);
+        } elseif ($filter[0] == null) {
+            return view('projects', [
+                'projects' => Project::latest()
+                    ->where('goalid', '=', $filter[1])
+                    ->get(),
+                'filterarray' => $filter
+
+            ]);
+
+        } else {
+            return view('projects', [
+                'projects' => Project::latest()
+                    ->where('verified', '=', $filter[0])
+                    ->where('goalid', '=', $filter[1])
+                    ->get(),
+                'filterarray' => $filter
+
+            ]);
+        }
     }
 
     public function show($id)
