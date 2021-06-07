@@ -121,18 +121,10 @@
                                 type: 'bar',
                                 data,
                                 options: {
-                                    // onClick: function(context) {
-                                    //     let index = context.findIndexFrom;
-                                    //     alert(index);
-                                    // }
                             },
                         };
 
-                        // function goToGoal(evt, item) {
-                        //     let id = item[0]['_model'].label;
-                        //     this.selectedIndex = id;
-                        //     alert('id');
-                        // }
+
 
                         // === include 'setup' then 'config' above ===
 
@@ -154,6 +146,10 @@
                             })(i);
                         }
                     </script>
+                    <?php
+
+                    ?>
+
                 </div>
                 <hr class="my-3"/>
 
