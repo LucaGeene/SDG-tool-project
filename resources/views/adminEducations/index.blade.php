@@ -9,7 +9,7 @@
                     @foreach($educations as $education)
                         <div class="box">
                             <li>
-                                <a href="opleidingen/{{$education->id}}"><b><h4>{{$education->name}}</h4></b></a>
+                                <a href="adminEducations/{{$education->id}}"><b><h4>{{$education->name}}</h4></b></a>
                                 <h5>{{$education->description}}</h5><br>
                             </li>
                         </div>

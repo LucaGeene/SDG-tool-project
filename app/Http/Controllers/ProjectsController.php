@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Education;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
@@ -9,7 +10,7 @@ class ProjectsController extends Controller
 {
     public function index(){
         return view('projects.index',[
-            'projects'=> Project::latest()->get()
+            'projects'=> Project::latest()->get(),
         ]);
     }
 

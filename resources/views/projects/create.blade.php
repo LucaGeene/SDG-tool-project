@@ -8,7 +8,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="card">
-                            <form method="POST" action="/projecten">
+                            <form method="POST" action="/projecten.index">
                                 @csrf
 
                                 <div class="form-group row">
@@ -24,7 +24,7 @@
                                         <label class="input-group-text" for="excerpt">Categorie</label>
                                     </div>
 
-                                    <select type="text" class="custom-select" id="excerpt" name="excerpt">
+                                    <select type="text" class="custom-select" id="category" name="category">
                                         <option value="Opleidingen">Opleidingen</option>
                                         <option value="HZ onderzoeksgroepen">HZ onderzoeksgroepen</option>
                                         <option value="Campusvoorzieningen">Campusvoorzieningen</option>

@@ -25,7 +25,8 @@ class ProjectFactory extends Factory
             'verified' => $this->faker->numberBetween(0,1),
             'goalId' => $this->faker->numberBetween(1,17),
             'title' => $this->faker->name(),
-            'excerpt' => $this->faker->text(200),
+            'category' => $this->faker->text(30),
+            'education' => $this->faker->text(20),
             'body' => $this->faker->text(1000)
         ];
     }

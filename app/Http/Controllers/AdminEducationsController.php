@@ -32,8 +32,8 @@ class AdminEducationsController extends Controller
     public function store($id)
     {
         request()->validate([
-            'name' => 'required',
-            'description' => 'required'
+            'name' => 'required|string',
+            'description' => 'required|string'
         ]);
 
         $education = Education::find($id);
