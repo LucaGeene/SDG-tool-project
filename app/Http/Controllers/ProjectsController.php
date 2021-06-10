@@ -8,13 +8,6 @@ use App\Models\Project;
 class ProjectsController extends Controller
 {
 
-//    public function index(){
-//        return view('projects',[
-//            'projects'=> Project::latest()->get()
-//        ]);
-//
-//    }
-
     public function index(Request $request)
     {
 
@@ -26,12 +19,12 @@ class ProjectsController extends Controller
         $filter[1] = $goalid;
 
         if ($filter[0] == null && $filter[1] == null) {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()->get(), 'filterarray' => $filter
 
             ]);
         } elseif ($filter[1] == null) {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->get(),
@@ -39,7 +32,7 @@ class ProjectsController extends Controller
 
             ]);
         } elseif ($filter[0] == null) {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()
                     ->where('goalid', '=', $filter[1])
                     ->get(),
@@ -48,7 +41,7 @@ class ProjectsController extends Controller
             ]);
 
         } else {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->where('goalid', '=', $filter[1])
@@ -66,7 +59,6 @@ class ProjectsController extends Controller
             return view('projects.show', ['project' => $project]);
         }
 
-
     }
 
     public function create()
@@ -80,14 +72,19 @@ class ProjectsController extends Controller
         request()->validate([
             'title' => 'required',
             'goalid' => 'required',
-            'excerpt' => 'required',
+//            'excerpt' => 'required',
+            'category' => 'required',
+            'education' => 'required',
             'body' => 'required'
         ]);
 
         $project = new Project();
         $project->goalid = request('goalid');
         $project->title = request('title');
-        $project->excerpt = request('excerpt');
+//        $project->excerpt = request('excerpt');
+        $project->activity_type = request('activity_type');
+        $project->category = request('category');
+        $project->education = request('education');
         $project->body = request('body');
 
         $test = request('verified');
@@ -98,7 +95,7 @@ class ProjectsController extends Controller
 
         $project->save();
 
-        return redirect('projects.index');
+        return redirect('/projecten');
     }
 
 

@@ -6,6 +6,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <br>
+{{--                    Displays the information from selected education                    --}}
                     <li>
                         <h4>{{$education->name}}</h4><br>
                         <h5>{{$education->description}}</h5>

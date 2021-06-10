@@ -10,7 +10,13 @@ class Education extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function path() {
+    public function path()
+    {
         return route('opleidingen.show', $this);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
     }
 }

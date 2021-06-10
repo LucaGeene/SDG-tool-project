@@ -17,8 +17,12 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->boolean('verified')->default(0);
             $table->text('goalid');
+//            $table->foreignId('education_id')->nullable()->constrained('education')->onDelete('cascade');
+            $table->string('activity_type');
             $table->string('title');
-            $table->text('excerpt');
+            $table->text('excerpt')->nullable();
+            $table->text('category');
+            $table->text('education');
             $table->text('body');
             $table->timestamps();
         });

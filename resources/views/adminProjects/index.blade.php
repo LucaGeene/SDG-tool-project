@@ -41,7 +41,7 @@
                 <h5>verified:{{$filterarray[0]}}</h5>
 
                 <h5>goalid:{{$filterarray[1]}}</h5>
-                <a href="{{ url('/admin') }}" class="btn-primary btn col-md-8 offset-2 justify-content-center">Reset</a>
+                <a href="{{ url('/adminProjecten') }}" class="btn-primary btn col-md-8 offset-2 justify-content-center">Reset</a>
             </div>
             </div>
 
@@ -66,7 +66,7 @@
                                         <p class="card-text">
                                             {{$project->excerpt}}
                                         </p>
-                                        <a href="projecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
+                                        <a href="adminProjecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
                                     </div>
                                 </div>
                             </div>

@@ -21,24 +21,6 @@
                                     @endif
                                 </div>
 
-{{--                                <div class="input-group mb-3 col-md-10 border-dark mb-3">--}}
-{{--                                    <div class="input-group-prepend border-dark">--}}
-{{--                                        <label class="input-group-text border-dark" for="excerpt">Opleiding:</label>--}}
-{{--                                    </div>--}}
-
-{{--                                    <select type="text" class="custom-select col-md-12 border-dark" id="excerpt" name="excerpt">--}}
-{{--                                        <option value="Opleidingen"></option>--}}
-{{--                                        <option value="HZ onderzoeksgroepen">HZ onderzoeksgroepen</option>--}}
-{{--                                        <option value="Campusvoorzieningen">Campusvoorzieningen</option>--}}
-{{--                                        <option value="Financiën">Financiën</option>--}}
-{{--                                        <option value="ICT">ICT</option>--}}
-{{--                                        <option value="Marketing, Communicatie en Internationalisering">Marketing, Communicatie en Internationalisering</option>--}}
-{{--                                        <option value="Onderwijs, Onderzoek en Kwaliteit">Onderwijs, Onderzoek en Kwaliteit</option>--}}
-{{--                                        <option value="PO&O">PO&O</option>--}}
-{{--                                        <option value="Studentvoorzieningen">Studentvoorzieningen</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-
                                 <label for="body" class="h4 mb-3 mt-3">Body:</label><br>
                                 <hr class="my-3 col-md-10">
                                 <div class="form-group row ml-3">
@@ -49,14 +31,9 @@
                                     @endif
                                 </div>
 
-                                <label for="body" class="h4 mb-6 mt-3">SDG categorie:</label><br>
+                                <label for="goalid" class="h4 mb-6 mt-3">SDG categorie:</label><br>
                                 <hr class="my-3 col-md-10">
                                 <div class="input-group mb-3 col-md-10 border-dark mb-3">
-
-{{--                                    <div class="input-group-prepend border-dark">--}}
-{{--                                        <label class="input-group-text border-dark" for="goalid">Sdg categorie:</label>--}}
-{{--                                    </div>--}}
-
                                     <select type="text" class="custom-select col-md-12 border-dark" id="goalid" name="goalid">
                                         <option value="1">1.Geen armoede</option>
                                         <option value="2">2.Geen honger</option>
@@ -78,15 +55,26 @@
                                     </select>
                                 </div>
 
-                                <label for="title" class="h3 mb-1 mt-3">Opleidingen:</label><br>
+                                <label for="activity_type" class="h3 mb-1 mt-3">Type activiteit:</label><br>
                                 <hr class="my-3 col-md-10">
                                 <div class="input-group mb-3 col-md-10 border-dark mb-3">
-{{--                                    <div class="input-group-prepend border-dark">--}}
-{{--                                        <label class="input-group-text border-dark" for="excerpt">Opleiding:</label>--}}
-{{--                                    </div>--}}
+                                    <select type="text" class="custom-select col-md-12 border-dark" id="activity_type" name="activity_type">
+                                        <option value="Cursus">Cursus</option>
+                                        <option value="Minor">Minor</option>
+                                        <option value="Afstudeeronderzoek">Afstudeeronderzoek</option>
+                                        <option value="Onderzoeksproject">Onderzoeksproject</option>
+                                        <option value="Event">Event</option>
+                                        <option value="Beleid">Beleid</option>
+                                        <option value="Bedrijfsvoering">Bedrijfsvoering</option>
+                                        <option value="Overig">Overig</option>
+                                    </select>
+                                </div>
 
-                                    <select type="text" class="custom-select col-md-12 border-dark" id="excerpt" name="excerpt">
-                                        <option value="Opleidingen"></option>
+                                <label for="category" class="h3 mb-1 mt-3">Opleidingen:</label><br>
+                                <hr class="my-3 col-md-10">
+                                <div class="input-group mb-3 col-md-10 border-dark mb-3">
+                                    <select type="text" class="custom-select col-md-12 border-dark" id="category" name="category">
+                                        <option value="Opleidingen">Opleidingen</option>
                                         <option value="HZ onderzoeksgroepen">HZ onderzoeksgroepen</option>
                                         <option value="Campusvoorzieningen">Campusvoorzieningen</option>
                                         <option value="Financiën">Financiën</option>
@@ -98,17 +86,30 @@
                                     </select>
                                 </div>
 
+                                <label for="education" class="h3 mb-1 mt-3">Opleiding:</label><br>
+                                <hr class="my-3 col-md-10">
+                                <div class="input-group mb-3 col-md-10 border-dark mb-3">
+                                    <select type="text" class="custom-select col-md-12 border-dark" id="education" name="education">
+                                        <option value="Cursus">Cursus</option>
+                                        <option value="Minor">Minor</option>
+                                        <option value="Afstudeeronderzoek">Afstudeeronderzoek</option>
+                                        <option value="Onderzoeksproject">Onderzoeksproject</option>
+                                        <option value="Event">Event</option>
+                                        <option value="Beleid">Beleid</option>
+                                        <option value="Bedrijfsvoering">Bedrijfsvoering</option>
+                                        <option value="Overig">Overig</option>
+                                    </select>
+                                </div>
+
                                 <label for="title" class="h3 mb-1 mt-3">Verified:</label><br>
                                 <hr class="my-3 col-md-10">
                                 <div class="form-group row ml-3">
-{{--                                    <label for="verified" class="h4 mb-3 mt-3">verified:</label><br>--}}
                                     <textarea class="mb-3 col-md-10 form-control border-dark" type="text" id="verified" name="verified">{{"0"}}</textarea><br>
-
                                 </div>
 
-                                <div>
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                                </div>
+{{--                                <div>--}}
+{{--                                    <input type="file" name="fileToUpload" id="fileToUpload">--}}
+{{--                                </div>--}}
 
                                 <div class="text-center">
                                     <input class="btn btn-primary mb-3" type="submit" value="Submit">

@@ -6,7 +6,8 @@
         <div class="row">
             <div class="col-md-8">
                 <ul>
-                    @foreach($educations as $education)
+{{--                    Displays all the educations from the database                    --}}
+                @foreach($educations as $education)
                         <div class="box">
                             <li>
                                 <a href="opleidingen/{{$education->id}}"><b><h4>{{$education->name}}</h4></b></a>
