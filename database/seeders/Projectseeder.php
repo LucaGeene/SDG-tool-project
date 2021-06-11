@@ -5,7 +5,7 @@ use App\Models\Project;
 use Illuminate\Database\Seeder;
 
 
-class ProjectSeeder extends Seeder
+class Projectseeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class ProjectSeeder extends Seeder
     public function run()
     {
         Project::factory()
-            ->count(50)
+            ->count(200)
             ->create();
     }
 }

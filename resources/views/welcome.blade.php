@@ -2,7 +2,8 @@
 
 @section('content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    {{--    <script type="text/javascript" src="{{ asset('js/Chart.min.js') }}"></script>--}}
     <header>
 
 
@@ -86,18 +87,28 @@
 
                 <hr class="my-3"/>
                 <div>
-                    <h1 class="bg-light">Bijdrage van projecten aan doelen</h1>
-                    <canvas id="countProjectsChart"></canvas>
+                    <canvas id="graphCanvas"></canvas>
+                </div>
 
-                    <script>
-                        const labels = [
+                <script>
+                    let count = [];
+                    let data;
+                    $.post("{{ asset('data.php') }}",
+
+                        function gatherData(data) {
+                            for (let i in data) {
+                                count.push(data[i].projectsum);
+                            }
+                        });
+
+                    data = {
+                        labels: [
                             @foreach($goals as $goal)
                                 '{{$goal->title}}',
                             @endforeach
-                        ];
-                        const data = {
-                            labels: labels,
-                            datasets: [{
+                        ],
+                        datasets: [
+                            {
                                 label: 'Aantal projecten/activiteiten',
                                 backgroundColor: [
                                     @foreach($goals as $goal)
@@ -110,48 +121,51 @@
                                     @endforeach
                                 ],
                                 borderWidth: 1,
-                                data: [
-                                    @foreach($projects as $project)
+                                data: @foreach($projects as $project)
+                                    @endforeach
+                                    count
+                            }
+                        ]
+                    };
 
-                                        @endforeach
-                                    10, 10, 10, 10, 10, 30, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-                            }]
-                        };
-                        const config = {
-                                type: 'bar',
-                                data,
-                                options: {
-                            },
-                        };
+                    const config = {
+                        type: 'bar',
+                        data,
+                        options: {},
+                    };
 
+                    // === include 'setup' then 'config' above ===
+                    setTimeout(showGraph, 1000);
 
+                    function showGraph() {
 
-                        // === include 'setup' then 'config' above ===
-
-                        let myChart = new Chart(
-                            document.getElementById('countProjectsChart'),
+                        myChart = new Chart(
+                            document.getElementById('graphCanvas'),
                             config
                         );
+                    }
 
-                        let g = document.getElementById('countProjectsChart');
-                        for (let i = 0, len = g.children.length; i < len; i++)
-                        {
+                </script>
 
-                            // TODO add clickable bars, to redirect to clicked goal.
-                            (function(index){
-                                g.children[i].onclick = function(){
-                                    alert('lol')  ;
-                                }
 
-                            })(i);
-                        }
-                    </script>
-                    <?php
+                {{--                        // let g = document.getElementById('countProjectsChart');--}}
+                {{--                        // for (let i = 0, len = g.children.length; i < len; i++)--}}
+                {{--                        // {--}}
+                {{--                        //--}}
+                {{--                        //     // TODO add clickable bars, to redirect to clicked goal.--}}
+                {{--                        //     (function(index){--}}
+                {{--                        //         g.children[i].onclick = function(){--}}
+                {{--                        //             alert('lol')  ;--}}
+                {{--                        //         }--}}
+                {{--                        //--}}
+                {{--                        //     })(i);--}}
+                {{--                        // }--}}
+                {{--                    </script>--}}
 
-                    ?>
 
-                </div>
+                {{--                </div>--}}
                 <hr class="my-3"/>
+
 
             </div>
         </main>

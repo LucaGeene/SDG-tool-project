@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "spatie/laravel-cookie-consent": "^2.12",
-      "ext-mysqli": "*"
+      "ext-mysqli": "*",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
