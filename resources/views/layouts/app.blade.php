@@ -93,8 +93,9 @@
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
-                                    <a class="dropdown-item text-dark" href="{{ url('/admin') }}">admin page</a>
-                                    <a class="dropdown-item text-dark" href="{{ url('/opleidingen/create') }}">Voeg opleiding toe</a>
+                                    <a class="dropdown-item" href="{{ url('/adminProjects') }}">Admin projects page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminEducations') }}">Admin educations page</a>
+                                    <a class="dropdown-item" href="{{ url('/opleidingen/create') }}">Voeg opleiding toe</a>
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

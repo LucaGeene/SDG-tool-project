@@ -65,18 +65,15 @@ class ProjectsController extends Controller
         if($project->verified == true){
             return view('projects.show', ['project' => $project]);
         }
-
-
     }
 
     public function create()
     {
-        return view('projects/create');
+        return view('projects.create');
     }
 
     public function store(Request $request)
     {
-
         request()->validate([
             'title' => 'required',
             'goalid' => 'required',
@@ -89,17 +86,12 @@ class ProjectsController extends Controller
         $project->title = request('title');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
-
         $test = request('verified');
         if ($test  == "1234"){
             $project->verified = 1;
         }
-
-
         $project->save();
 
-        return redirect('projecten');
+        return redirect('projects.index');
     }
-
-
 }
