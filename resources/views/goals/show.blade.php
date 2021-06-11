@@ -40,7 +40,6 @@
         @endforeach
 
         <div class="container">
-            <h5>{{$users->name}}</h5>
 
             <div class="row">
                 <ul>
