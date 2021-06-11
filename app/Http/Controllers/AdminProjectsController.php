@@ -59,8 +59,8 @@ class AdminProjectsController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'title' => 'required',
             'goalid' => 'required',
+            'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
         ]);
@@ -79,6 +79,7 @@ class AdminProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
+
         return view('adminProjects.edit', ['project' => $project]);
     }
 
@@ -100,13 +101,13 @@ class AdminProjectsController extends Controller
         $project->verified = request('verified');
         $project->save();
 
-        return redirect('adminProjects.index/' . $project->id);
+        return redirect('adminProjecten/');
     }
 
     public function destroy($id)
     {
         Project::find($id)->delete();
 
-        return redirect('adminProjects.index/');
+        return redirect('/adminProjecten');
     }
 }

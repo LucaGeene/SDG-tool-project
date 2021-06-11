@@ -7,7 +7,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="card">
-                            <form method="POST" action="/admin/{{$project->id}}">
+                            <form method="POST" action="/adminProjecten/{{$project->id}}">
                                 @csrf
                                 @method('PUT')
 
@@ -60,7 +60,7 @@
 
             <div class="col-md-4">
                 <div class="form-group row">
-                    <form method="POST" action="/admin/{{ $project->id }}">
+                    <form method="POST" action="/adminProjecten/{{ $project->id }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Delete</button>

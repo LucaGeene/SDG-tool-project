@@ -8,9 +8,9 @@
                     <br>
 {{--                    Displays the information from selected education                    --}}
                     <li>
-                        <h4>{{$education->name}}</h4><br>
-                        <h5>{{$education->description}}</h5>
-                        <h5>{{$education->body}}</h5>
+                        <h4>{{$educations->name}}</h4><br>
+                        <h5>{{$educations->description}}</h5>
+                        <h5>{{$educations->body}}</h5>
                     </li>
                 </div>
             </div>

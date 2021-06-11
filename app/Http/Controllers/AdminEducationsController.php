@@ -25,8 +25,7 @@ class AdminEducationsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
-    {
+    public function index(){
         return view('adminEducations.index',[
             'educations'=> Education::latest()->get()
         ]);
@@ -35,10 +34,10 @@ class AdminEducationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Education $id
+     * @param $id
      * @return Application|Factory|View
      */
-    public function show(Education $id)
+    public function show($id)
     {
         $education = Education::find($id);
         return view( 'adminEducations.show', ['educations' => $education]);
@@ -73,16 +72,16 @@ class AdminEducationsController extends Controller
         $education->body = request('body');
         $education->save();
 
-        return redirect('adminEducations.index');
+        return redirect('huurders');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Education $id
+     * @param $id
      * @return Application|Factory|View
      */
-    public function edit(Education $id)
+    public function edit($id)
     {
         $education = Education::find($id);
         return view('adminEducations.edit',['educations' => $education]);
@@ -91,10 +90,10 @@ class AdminEducationsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Education $id
+     * @param $id
      * @return Application|Redirector|RedirectResponse
      */
-    public function update(Education $id)
+    public function update($id)
     {
         request()->validate([
             'name' => 'required',
@@ -107,20 +106,21 @@ class AdminEducationsController extends Controller
         $education->body = request('body');
         $education->save();
 
-        return redirect('adminEducations.index');
+//        return view('adminEducations.index');
+        return redirect('adminOpleidingen');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Education $id
+     * @param $id
      * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(Education $id)
+    public function destroy($id)
     {
         $education = Education::find($id);
         $education->delete();
 
-        return redirect('/adminEducations.index');
+        return redirect('adminOpleidingen');
     }
 }

@@ -23,10 +23,11 @@ class ProjectFactory extends Factory
     {
         return [
             'verified' => $this->faker->numberBetween(0,1),
-            'title' => $this->faker->name(),
             'goalId' => $this->faker->numberBetween(1,17),
             'activity_type' => $this->faker->word(),
-//            'educationId' => $this->faker->numberBetween(1, 23),
+            'education_id' => $this->faker->numberBetween(1, 23),
+            'title' => $this->faker->name(),
+            'excerpt' => $this->faker->text(100),
             'category' => $this->faker->text(30),
             'education' => $this->faker->text(20),
             'body' => $this->faker->text(1000)

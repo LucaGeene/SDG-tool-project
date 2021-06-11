@@ -26,11 +26,11 @@ class EducationController extends Controller
      * @param Education $id
      * @return Application|Factory|View
      */
-    public function show(Education $id)
+    public function show($id)
     {
         $education = Education::find($id);
 
-        return view( 'educations.show', ['education' => $education]);
+        return view( 'educations.show', ['educations' => $education]);
     }
 }
 

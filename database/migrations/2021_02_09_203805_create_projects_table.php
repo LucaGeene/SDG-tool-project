@@ -17,7 +17,10 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->boolean('verified')->default(0);
             $table->text('goalid');
-//            $table->foreignId('education_id')->nullable()->constrained('education')->onDelete('cascade');
+            $table->foreignId('education_id')->nullable()
+//                ->constrained('education')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('activity_type');
             $table->string('title');
             $table->text('excerpt')->nullable();

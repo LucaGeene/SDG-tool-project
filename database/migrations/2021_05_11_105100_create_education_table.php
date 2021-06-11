@@ -15,6 +15,7 @@ class CreateEducationTable extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->id();
+            $table->text('educationid')->nullable();
             $table->string('name');
             $table->text('description');
             $table->text('body')->nullable();
