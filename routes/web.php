@@ -3,12 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectsController;
 use App\Http\Controllers\goalController;
-use App\Http\Controllers\AdminProjectsController;
-use App\Http\Controllers\AdminEducationsController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\EducationController;
 use App\Models\Project;
-use App\Models\Goal;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,11 +51,14 @@ Auth::routes();
 
 
 
+//routes voor doelen
+
 //routes for doelen
 
 Route::get('doelen', [goalController::class, 'index']);
 Route::get('doelen/{goal}', [goalController::class, 'show']);
 
+//routes voor opleidingen
 
 //routes for educations
 //READ
