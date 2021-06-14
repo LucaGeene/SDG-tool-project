@@ -11,13 +11,13 @@
                 <div class="col-md-8">
                     <br>
                     <li>
-                        <h4>{{$educations->name}}</h4><br>
-                        <h5>{{$educations->description}}</h5>
-                        <h5>{{$educations->body}}</h5>
+                        <h4>{{$education->name}}</h4><br>
+                        <h5>{{$education->description}}</h5>
+                        <h5>{{$education->body}}</h5>
                     </li>
                 </div>
                 <div class="col-md-4">
-                        <a id='current-page' href="{{$educations->id}}/edit">edit</a>
+                <a id='current-page' class="btn-primary btn" href="{{$education->id}}/edit">edit</a>
                 </div>
             </div>
         </div>

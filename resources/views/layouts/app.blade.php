@@ -89,11 +89,8 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                    <a class="dropdown-item" href="{{ url('/adminProjects') }}">Admin projects page</a>
+
+                                    <a class="dropdown-item" href="{{ url('/adminProjecten') }}">Admin projects page</a>
                                     <a class="dropdown-item" href="{{ url('/adminEducations') }}">Admin educations page</a>
                                     <a class="dropdown-item" href="{{ url('/adminEducations/create') }}">Voeg opleiding toe</a>
 <br>
