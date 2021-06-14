@@ -3,12 +3,13 @@
 @section('content')
     <main>
 
+        <div class="row">
         @foreach($goals as $goal)
             @if($goal->id == $id)
-                <div class="container" style="background-color: {{$goal->color}}" id="subgoal">
+                <div class="col-md-5" style="background-color: {{$goal->color}}" id="subgoal">
                     <img id="goal" src="/assets/{{$id}}.png">
 
-                    <div class="box">
+                    <div class="box ">
 
                         <h3>{{$goal->title}}</h3>
                         <br>
@@ -39,21 +40,38 @@
             @endif
         @endforeach
 
-        <div class="container">
+        <div class="row col-md-4 mt-2">
 
-            <div class="row">
-                <ul>
+
                     @foreach($projects as $project)
                         @if($project->verified == true && $project->goalid == $id)
-                            <div class="box">
-                                <li><a href="/projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>
-                                    <h5>{{$project->excerpt}}</h5></li>
-
+                            <div class="mb-3">
+                                <div class="card">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img
+                                            src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                            class="img-fluid rounded"
+                                        />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {{$project->title}}
+                                        </h5>
+                                        <p class="card-text">
+                                            {{$project->excerpt}}
+                                        </p>
+                                        <a href="/projecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
+                                    </div>
+                                </div>
                             </div>
+{{--                            <div class="box">--}}
+{{--                                <li><a href="/projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>--}}
+{{--                                    <h5>{{$project->excerpt}}</h5></li>--}}
+
+{{--                            </div>--}}
                         @endif
                     @endforeach
-                </ul>
-            </div>
+        </div>
         </div>
     </main>
 @endsection

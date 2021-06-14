@@ -41,10 +41,15 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar navbar-dark bg-secondary shadow-sm">
+    <nav class="navbar navbar-expand-md navbar navbar-dark bg-light shadow-sm">
+        <img src="{{ asset('assets/hz-logo.png') }}" height=63mm width=247mm >
+
         <div class="container col-9">
             <a class="navbar-brand font-weight-bold h1" href="{{ url('/') }}">
-                Dashboard
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"  fill="currentColor" class="bi bi-house text-dark" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                </svg>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -56,9 +61,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav align-self-xl-center">
-                    <li class="nav-item"><a class="nav-link h5 text-light" href="{{ url('/doelen') }}">Doelen</a></li>
-                    <li class="nav-item" ><a class="nav-link h5 text-light" href="{{ url('/opleidingen') }}">Opleidingen</a></li>
-                    <li class="nav-item" ><a class="nav-link h5 text-light" href="{{ url('/projecten') }}">Alle projecten</a></li>
+                    <li class="nav-item"><a class="nav-link h5 text-light text-dark btn btn-light" href="{{ url('/doelen') }}">Doelen</a></li>
+                    <li class="nav-item" ><a class="nav-link h5 text-light text-dark btn btn-light" href="{{ url('/opleidingen') }}">Opleidingen</a></li>
+                    <li class="nav-item" ><a class="nav-link h5 text-light text-dark btn btn-light" href="{{ url('/projecten') }}">Alle projecten</a></li>
                 </ul>
 
 
@@ -67,31 +72,35 @@
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item ">
-                                <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item">
+                                <a class="nav-link text-light text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link text-light text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown ">
+                            <a class="btn btn-light dropdown-toggle text-dark" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item " href="{{ route('logout') }}"
+                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
-                                    <a class="dropdown-item" href="{{ url('/admin') }}">admin page</a>
-                                    <a class="dropdown-item" href="{{ url('/opleidingen/create') }}">Voeg opleiding toe</a>
-                                </a>
-
+                                    <a class="dropdown-item" href="{{ url('/adminProjects') }}">Admin projects page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminEducations') }}">Admin educations page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminEducations/create') }}">Voeg opleiding toe</a>
+<br>
+                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Uitloggen</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>

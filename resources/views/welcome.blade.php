@@ -63,7 +63,7 @@
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
                                             src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                            class="img-fluid"
+                                            class="img-fluid rounded"
                                         />
                                     </div>
                                     <div class="card-body">
