@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Education;
+use App\Models\Goal;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
@@ -79,11 +81,15 @@ class AdminProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('adminProjects.edit', ['project' => $project]);
+        $goals = Goal::all();
+
+        $educations = Education::all();
+        return view('adminProjects.edit', ['project' => $project, 'educations'=> $educations, 'goals' =>  $goals]);
     }
 
     public function update($id)
     {
+//        TODO maak dit werkend stefan!!!!!
         request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
