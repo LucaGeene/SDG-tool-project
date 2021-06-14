@@ -63,7 +63,7 @@
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
                                             src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                            class="img-fluid"
+                                            class="img-fluid rounded"
                                         />
                                     </div>
                                     <div class="card-body">
@@ -87,6 +87,7 @@
 
                 <hr class="my-3"/>
                 <div>
+                    <h1 class="bg-light">Bijdrage van projecten aan doelen</h1>
                     <canvas id="graphCanvas"></canvas>
                 </div>
 
@@ -165,7 +166,6 @@
 
                 {{--                </div>--}}
                 <hr class="my-3"/>
-
 
             </div>
         </main>

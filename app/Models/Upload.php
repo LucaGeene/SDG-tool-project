@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Upload extends Model
 {
     use HasFactory;
-
-    public function goal() {
-        return $this->belongsToMany(Goal::class);
-    }
-
+//    protected $fillable = [
+//        'name',
+//        'file_path'
+//    ];
 }
