@@ -21,7 +21,7 @@ class AdminEducationsController extends Controller
     public function show($id)
     {
         $education = Education::find($id);
-        return view( 'adminEducations.show', ['educations' => $education]);
+        return view( 'adminEducations.show', ['education' => $education]);
     }
 
     public function create()
