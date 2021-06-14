@@ -3,12 +3,13 @@
 @section('content')
     <main>
 
+        <div class="row">
         @foreach($goals as $goal)
             @if($goal->id == $id)
                 <div class="col-md-5" style="background-color: {{$goal->color}}" id="subgoal">
                     <img id="goal" src="/assets/{{$id}}.png">
 
-                    <div class="box">
+                    <div class="box ">
 
                         <h3>{{$goal->title}}</h3>
                         <br>
@@ -41,8 +42,7 @@
 
         <div class="row col-md-4 mt-2">
 
-            <div class="row">
-                <ul>
+
                     @foreach($projects as $project)
                         @if($project->verified == true && $project->goalid == $id)
                             <div class="mb-3">
@@ -71,8 +71,7 @@
 {{--                            </div>--}}
                         @endif
                     @endforeach
-                </ul>
-            </div>
+        </div>
         </div>
     </main>
 @endsection

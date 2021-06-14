@@ -59,8 +59,8 @@ class AdminProjectsController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'goalid' => 'required',
             'title' => 'required',
+            'goalid' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
         ]);
@@ -79,12 +79,15 @@ class AdminProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
+        $goals = Goal::all();
 
-        return view('adminProjects.edit', ['project' => $project]);
+        $educations = Education::all();
+        return view('adminProjects.edit', ['project' => $project, 'educations'=> $educations, 'goals' =>  $goals]);
     }
 
     public function update($id)
     {
+//        TODO maak dit werkend stefan!!!!!
         request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
@@ -101,13 +104,13 @@ class AdminProjectsController extends Controller
         $project->verified = request('verified');
         $project->save();
 
-        return redirect('adminProjecten/');
+        return redirect('adminProjects.index/' . $project->id);
     }
 
     public function destroy($id)
     {
         Project::find($id)->delete();
 
-        return redirect('/adminProjecten');
+        return redirect('adminProjects.index/');
     }
 }

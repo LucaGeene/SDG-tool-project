@@ -16,17 +16,15 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->boolean('verified')->default(0);
-            $table->text('goalid');
-            $table->foreignId('education_id')->nullable()
-//                ->constrained('education')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->string('activity_type');
+            $table->text('goalid'); // Needs go to, move to different table to link projects and goals/subgoals
             $table->string('title');
-            $table->text('excerpt')->nullable();
+            $table->string('education');
             $table->text('category');
-            $table->text('education');
+            $table->text('excerpt');
             $table->text('body');
+            $table->string('reference_url')->nullable();
+            $table->string('contact_name')->nullable();
+            $table->string('contact_email')->nullable();
             $table->timestamps();
         });
     }

@@ -2,19 +2,20 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row mt-3">
 
             <div class="col-md-12">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <div class="card">
-                            <form method="POST" action="/opleidingen" class="needs-validation" novalidate>
+                        <div class="card border-primary">
+                            <form method="POST" action="/adminEducations">
                                 @csrf
 
 {{--                                Creating input for the education name                                --}}
-                                <div class="form-group flex-row-reverse">
-                                    <label for="name" class="text-md-right">Naam Opleiding:</label><br>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                <div class="form-group flex-row-reverse ml-3">
+                                    <label for="name" class="h3 mb-1 mt-3">Naam Opleiding:</label><br>
+                                    <hr class="my-3">
+                                    <input type="text" class="mb-1 col-md-10 form-control border-dark" id="name" name="name" required>
                                     @if ($errors->has('name'))
                                         <div class="error" style="color: red">
                                             {{ $errors->first('name') }}
@@ -23,9 +24,10 @@
                                 </div>
 
 {{--                                Creating textarea for the education description                                --}}
-                                <div class="form-group flex-row-reverse">
-                                    <label for="description" class="text-md-right">Description:</label><br>
-                                    <textarea class="form-control" id="description" name="description" required>{{old('description')}}</textarea>
+                                <div class="form-group flex-row-reverse ml-3">
+                                    <label for="description" class="h3 mb-1 mt-3">Description:</label><br>
+                                    <hr class="my-3">
+                                    <textarea class="mb-1 col-md-10 form-control border-dark" id="description" name="description" required>{{old('description')}}</textarea>
                                     @if ($errors->has('description'))
                                         <div class="error" style="color: red">
                                             {{ $errors->first('description') }}
@@ -34,9 +36,10 @@
                                 </div>
 
 {{--                                Creating textarea for the education description                                --}}
-                                <div class="form-group flex-row-reverse">
-                                    <label for="body" class="col-form-label text-md-right">Body:</label><br>
-                                    <textarea class="form-control" id="body" name="body">{{old('body')}}</textarea>
+                                <div class="form-group flex-row-reverse ml-3">
+                                    <label for="body" class="h3 mb-1 mt-3">Body:</label><br>
+                                    <hr class="my-3">
+                                    <textarea class="mb-1 col-md-10 form-control border-dark" id="body" name="body">{{old('body')}}</textarea>
                                     @if ($errors->has('body'))
                                         <div class="error" style="color: red">
                                             {{ $errors->first('body') }}
@@ -44,13 +47,11 @@
                                     @endif
                                 </div>
 
-{{--                                Submit button for saving made creations                                --}}
                                 <div class="input-group mb-3">
-                                    <div class="text-center">
-                                        <input type="submit" value="Submit">
+                                    <div class="text-center ml-3">
+                                        <input type="submit" value="Submit" class="btn btn-primary">
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                     </div>

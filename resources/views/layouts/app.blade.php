@@ -89,15 +89,15 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ url('/adminProjecten') }}">Admin projects page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminEducations') }}">Admin educations page</a>
+                                    <a class="dropdown-item" href="{{ url('/adminEducations/create') }}">Voeg opleiding toe</a>
+<br>
                                 <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                    <a class="dropdown-item text-dark" href="{{ url('/adminProjecten') }}">admin projecten pagina</a>
-                                    <a class="dropdown-item text-dark" href="{{ url('/adminOpleidingen') }}">admin opleidingen pagina</a>
-                                    <a class="dropdown-item text-dark" href="{{ url('/adminOpleidingen/create') }}">Voeg opleiding toe</a>
-                                </a>
-
+                                    Uitloggen</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>

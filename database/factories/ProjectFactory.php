@@ -23,14 +23,13 @@ class ProjectFactory extends Factory
     {
         return [
             'verified' => $this->faker->numberBetween(0,1),
-            'goalId' => $this->faker->numberBetween(1,17),
-            'activity_type' => $this->faker->word(),
-            'education_id' => $this->faker->numberBetween(1, 23),
+            'goalid' => $this->faker->numberBetween(1,17),
             'title' => $this->faker->name(),
-            'excerpt' => $this->faker->text(100),
-            'category' => $this->faker->text(30),
-            'education' => $this->faker->text(20),
-            'body' => $this->faker->text(1000)
+            'education' => $this->faker->text(10),
+            'excerpt' => $this->faker->text(200),
+            'body' => $this->faker->text(1000),
+            'contact_name' => $this->faker->name(),
+
         ];
     }
 }
