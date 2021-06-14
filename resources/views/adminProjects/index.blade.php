@@ -1,10 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <hr class="my-5"/>
-    <div class="container border-primary border bg-light col-md-8 rounded">
+    <div class="col-12 text-center">
+        <h1 class="bg-light">Projecten adminpagina</h1>
+        <p class="text-dark">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+            eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+            sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+
+        </p>
+    </div>
+    <hr class="my-5" />
+    <div class="container">
+        <div class=" border-primary border bg-light rounded">
         <h2 class="card-header mb-3 bg-info">Filter</h2>
-        <div class="form-group row ">
+        <div class="form-group">
                 <form action="" method="GET">
                     {{--                        <input type="text" name="category" required/>--}}
                     <label class="col-md-1 mb-3" for="verified">verified:</label>
@@ -35,14 +45,14 @@
                     </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary ">Filter</button>
+                    <button type="submit" class="btn btn-primary ml-3">Filter</button>
                 </form>
 
-                <h5>verified:{{$filterarray[0]}}</h5>
+                <h5 class="ml-3">verified:{{$filterarray[0]}}</h5>
 
-                    <h5>goalid:{{$filterarray[1]}}</h5>
-                    <a href="{{ url('/adminProjects') }}">Reset</a>
-
+                    <h5 class="ml-3">goalid:{{$filterarray[1]}}</h5>
+                    <a class="btn btn-primary ml-3"  href="{{ url('/adminProjects') }}">Reset</a>
+                    </div>
                 </div>
             </div>
 
@@ -67,7 +77,7 @@
                                         <p class="card-text">
                                             {{$project->excerpt}}
                                         </p>
-                                        <a href="projecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
+                                        <a href="adminProjecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
                                     </div>
                                 </div>
                             </div>

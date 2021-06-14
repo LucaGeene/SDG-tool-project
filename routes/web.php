@@ -6,7 +6,10 @@ use App\Http\Controllers\goalController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\AdminEducationsController;
+use App\Http\Controllers\AdminProjectsController;
 use App\Models\Project;
+use App\Models\Goal;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,8 +102,8 @@ Route::get('adminProjects', [AdminProjectsController::class, 'index']);
 Route::get('adminProjects/{project}', [AdminProjectsController::class, 'show']);
 
 //UPDATE
-Route::get('adminProjects/{project}/edit', [AdminProjectsController::class, 'edit']);
-Route::put('adminProjects/{project}', [AdminProjectsController::class, 'update']);
+Route::get('adminProjecten/{project}/edit', [AdminProjectsController::class, 'edit']);
+Route::put('adminProjecten/{project}', [AdminProjectsController::class, 'update']);
 
 //DELETE
-Route::delete('adminProjects/{project}', [AdminProjectsController::class, 'destroy']);
+Route::delete('adminProjecten/{project}', [AdminProjectsController::class, 'destroy']);

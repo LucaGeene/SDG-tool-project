@@ -2,6 +2,10 @@
 
 @section('content')
     <main>
+        <div class="col-12 text-center">
+            <h1 class="bg-light">{{$education->name}}</h1>
+        </div>
+        <hr class="my-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">

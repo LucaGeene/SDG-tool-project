@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="col-12 text-center">
+        <h1 class="bg-light">Project toevoegen</h1>
+    </div>
+    <hr class="my-5" />
     <div class="container mt-5">
 {{--        <div class="row">--}}
 
@@ -49,62 +53,55 @@
                                     @endif
                                 </div>
 
-                                <label for="body" class="h4 mb-6 mt-3">SDG categorie:</label><br>
-                                <hr class="my-3 col-md-10">
-                                <div class="input-group mb-3 col-md-10 border-dark mb-3">
+                    <label for="goalid" class="h4 mb-6 mt-3">SDG doel:</label><br>
+                    <hr class="my-3 col-md-10">
+                    <div class="input-group mb-3 col-md-10 border-dark mb-3">
+                        <select type="text" class="custom-select col-md-12 border-dark" id="goalid" name="goalid">
+                            <option></option>
+                            @foreach($goals as $goal)
+                                <option value="{{$goal->id}}">{{$goal->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-{{--                                    <div class="input-group-prepend border-dark">--}}
-{{--                                        <label class="input-group-text border-dark" for="goalid">Sdg categorie:</label>--}}
-{{--                                    </div>--}}
+                    <label for="reference_url" class="h3 mb-1 mt-3">URL (voor meer info idk)</label><br>
+                    <hr class="my-3 col-md-10">
+                    <div class="form-group row ml-3">
 
-                                    <select type="text" class="custom-select col-md-12 border-dark" id="goalid" name="goalid">
-                                        <option value="1">1.Geen armoede</option>
-                                        <option value="2">2.Geen honger</option>
-                                        <option value="3">3.Goede gezondheid & welzijn</option>
-                                        <option value="4">4.Kwaliteitsonderwijs</option>
-                                        <option value="5">5.Gendergelijkheid</option>
-                                        <option value="6">6.Schoon water en sanitair</option>
-                                        <option value="7">7.Betaalbare- en duurzame energie</option>
-                                        <option value="8">8.Eerlijk werk en economische groei</option>
-                                        <option value="9">9.Industrie, Innovatie en Infrastructuur</option>
-                                        <option value="10">10.Ongelijkheid verminderen</option>
-                                        <option value="11">11.Duurzame Steden en Gemeenschappen</option>
-                                        <option value="12">12.Verantwoorde Consumptie en Productie</option>
-                                        <option value="13">13.Klimaatactie</option>
-                                        <option value="14">14.Leven in het water</option>
-                                        <option value="15">15.Leven op het Land</option>
-                                        <option value="16">16.Vrede, justitie en sterke publieke diensten</option>
-                                        <option value="17">17.Partnerschap om doelstellingen te bereiken</option>
-                                    </select>
-                                </div>
+                        <input class="mb-1 col-md-10 form-control border-dark" type="url" id="reference_url" name="reference_url"
+                               value="{{old('reference_url')}}"><br>
+                        @if($errors->has('reference_url'))
+                            <p class="text-danger">{{$errors->first('reference_url')}}</p>
+                        @endif
+                    </div>
 
-                                <label for="title" class="h3 mb-1 mt-3">Opleidingen:</label><br>
-                                <hr class="my-3 col-md-10">
-                                <div class="input-group mb-3 col-md-10 border-dark mb-3">
-{{--                                    <div class="input-group-prepend border-dark">--}}
-{{--                                        <label class="input-group-text border-dark" for="excerpt">Opleiding:</label>--}}
-{{--                                    </div>--}}
+                    <label for="contact_name" class="h3 mb-1 mt-3">Naam:</label><br>
+                    <hr class="my-3 col-md-10">
+                    <div class="form-group row ml-3">
+                        <input class="mb-1 col-md-10 form-control border-dark" type="text" id="contact_name" name="contact_name"
+                               value="{{old('contact_name')}}"><br>
+                        @if($errors->has('contact_name'))
+                            <p class="text-danger">{{$errors->first('contact_name')}}</p>
+                        @endif
+                    </div>
 
-                                    <select type="text" class="custom-select col-md-12 border-dark" id="excerpt" name="excerpt">
-                                        <option value="Opleidingen"></option>
-                                        <option value="HZ onderzoeksgroepen">HZ onderzoeksgroepen</option>
-                                        <option value="Campusvoorzieningen">Campusvoorzieningen</option>
-                                        <option value="Financiën">Financiën</option>
-                                        <option value="ICT">ICT</option>
-                                        <option value="Marketing, Communicatie en Internationalisering">Marketing, Communicatie en Internationalisering</option>
-                                        <option value="Onderwijs, Onderzoek en Kwaliteit">Onderwijs, Onderzoek en Kwaliteit</option>
-                                        <option value="PO&O">PO&O</option>
-                                        <option value="Studentvoorzieningen">Studentvoorzieningen</option>
-                                    </select>
-                                </div>
+                    <label for="contact_email" class="h3 mb-1 mt-3">E-mail:</label><br>
+                    <hr class="my-3 col-md-10">
+                    <div class="form-group row ml-3">
+                        <input class="mb-1 col-md-10 form-control border-dark" type="email" id="contact_email" name="contact_email"
+                               value="{{old('contact_email')}}"><br>
+                        @if($errors->has('contact_email'))
+                            <p class="text-danger">{{$errors->first('contact_email')}}</p>
+                        @endif
+                    </div>
 
-                                <label for="title" class="h3 mb-1 mt-3">Verified:</label><br>
-                                <hr class="my-3 col-md-10">
-                                <div class="form-group row ml-3">
-{{--                                    <label for="verified" class="h4 mb-3 mt-3">verified:</label><br>--}}
-                                    <textarea class="mb-3 col-md-10 form-control border-dark" type="text" id="verified" name="verified">{{"0"}}</textarea><br>
-
-                                </div>
+                    <label for="verification" class="h3 mb-1 mt-3">Verificatiecode:</label>
+                    <p>Als u een verificatie-code heeft, vul die hieronder in om dit project gelijk op de site toe te laten.</p><br>
+                    <hr class="my-3 col-md-10">
+                    <div class="form-group row ml-3">
+                        <textarea class="mb-3 col-md-10 form-control border-dark" type="text" id="verification"
+                                  name="verification"></textarea><br>
+                    </div>
 
                                 <div>
                                     <input type="file" name="fileToUpload" id="fileToUpload">

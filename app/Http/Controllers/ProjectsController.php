@@ -26,12 +26,12 @@ class ProjectsController extends Controller
         $filter[1] = $goalid;
 
         if ($filter[0] == null && $filter[1] == null) {
-            return view('projects', [
-                'projects' => Project::latest()->get(), 'filterarray' => $filter
+            return view('projects.index', [
+                'projects' => Project::latest()->get(), 'filterarray' => $filter, 'goals' => $goals, 'educations' => $educations
 
             ]);
         } elseif ($filter[1] == null) {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->get(),
@@ -39,7 +39,7 @@ class ProjectsController extends Controller
 
             ]);
         } elseif ($filter[0] == null) {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()
                     ->where('goalid', '=', $filter[1])
                     ->get(),
@@ -48,7 +48,7 @@ class ProjectsController extends Controller
             ]);
 
         } else {
-            return view('projects', [
+            return view('projects.index', [
                 'projects' => Project::latest()
                     ->where('verified', '=', $filter[0])
                     ->where('goalid', '=', $filter[1])

@@ -95,9 +95,12 @@
                                     {{ __('Logout') }}
                                     <a class="dropdown-item" href="{{ url('/adminProjects') }}">Admin projects page</a>
                                     <a class="dropdown-item" href="{{ url('/adminEducations') }}">Admin educations page</a>
-                                    <a class="dropdown-item" href="{{ url('/opleidingen/create') }}">Voeg opleiding toe</a>
-                                </a>
-
+                                    <a class="dropdown-item" href="{{ url('/adminEducations/create') }}">Voeg opleiding toe</a>
+<br>
+                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Uitloggen</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
