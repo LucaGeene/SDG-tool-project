@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectsController;
 use App\Http\Controllers\goalController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\AdminEducationsController;
 use App\Http\Controllers\AdminProjectsController;
@@ -20,36 +21,10 @@ use App\Models\Goal;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//route voor dashboard
+//route voor dashboardController
 
-Route::get('/', function () {
-
-    $projects = Project::latest()->get();
-
-
-    $goals = Goal::all();
-
-    $fprojects = array();
-
-    foreach ($projects as $project){
-        if($project->verified == true){
-            $fprojects[] = $project;
-        }
-    }
-    $ffprojects = array();
-    for ($i = 0; $i < 3; $i++) {
-        $ffprojects[$i] = $fprojects[$i];
-    }
-        return view('welcome', ['projects' => $ffprojects, 'goals' => $goals]);
-
-
-
-});
-
-
-
-
-//route for login
+Route::get('/', [DashboardController::class, 'index' ]);
+//route voor login
 Auth::routes();
 
 
