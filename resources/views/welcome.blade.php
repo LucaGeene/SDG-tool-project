@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    {{--    <script type="text/javascript" src="{{ asset('js/Chart.min.js') }}"></script>--}}
     <header>
 
 
@@ -60,12 +63,12 @@
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
                                             src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                            class="img-fluid"
+                                            class="img-fluid rounded"
                                         />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <li>{{$project->title}}</li>
+                                            {{$project->title}}
                                         </h5>
                                         <p class="card-text">
                                             {{$project->excerpt}}
@@ -83,7 +86,86 @@
                 <!--Section: Content-->
 
                 <hr class="my-3"/>
+                <div>
+                    <h1 class="bg-light">Bijdrage van projecten aan doelen</h1>
+                    <canvas id="graphCanvas"></canvas>
+                </div>
 
+                <script>
+                    let count = [];
+                    let data;
+                    $.post("{{ asset('data.php') }}",
+
+                        function gatherData(data) {
+                            for (let i in data) {
+                                count.push(data[i].projectsum);
+                            }
+                        });
+
+                    data = {
+                        labels: [
+                            @foreach($goals as $goal)
+                                '{{$goal->title}}',
+                            @endforeach
+                        ],
+                        datasets: [
+                            {
+                                label: 'Aantal projecten/activiteiten',
+                                backgroundColor: [
+                                    @foreach($goals as $goal)
+                                        '{{$goal->color}}40',
+                                    @endforeach
+                                ],
+                                borderColor: [
+                                    @foreach($goals as $goal)
+                                        '{{$goal->color}}',
+                                    @endforeach
+                                ],
+                                borderWidth: 1,
+                                data: @foreach($projects as $project)
+                                    @endforeach
+                                    count
+                            }
+                        ]
+                    };
+
+                    const config = {
+                        type: 'bar',
+                        data,
+                        options: {},
+                    };
+
+                    // === include 'setup' then 'config' above ===
+                    setTimeout(showGraph, 1000);
+
+                    function showGraph() {
+
+                        myChart = new Chart(
+                            document.getElementById('graphCanvas'),
+                            config
+                        );
+                    }
+
+                </script>
+
+
+                {{--                        // let g = document.getElementById('countProjectsChart');--}}
+                {{--                        // for (let i = 0, len = g.children.length; i < len; i++)--}}
+                {{--                        // {--}}
+                {{--                        //--}}
+                {{--                        //     // TODO add clickable bars, to redirect to clicked goal.--}}
+                {{--                        //     (function(index){--}}
+                {{--                        //         g.children[i].onclick = function(){--}}
+                {{--                        //             alert('lol')  ;--}}
+                {{--                        //         }--}}
+                {{--                        //--}}
+                {{--                        //     })(i);--}}
+                {{--                        // }--}}
+                {{--                    </script>--}}
+
+
+                {{--                </div>--}}
+                <hr class="my-3"/>
 
             </div>
         </main>

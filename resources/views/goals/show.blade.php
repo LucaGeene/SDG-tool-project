@@ -2,26 +2,76 @@
 
 @section('content')
     <main>
-        <img src="{{asset("assets/$id.png")}}" >
-        <div class="container">
 
-    <h5>{{$users->name}}</h5>
-                <div class="row">
-                    <ul>
-                        @foreach($projects as $project)
-                            @if($project->verified == true)
-                            @if($project->goalid == $id)
-                        <div class="box">
-                            <li><a href="/projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>
-                                <h5>{{$project->excerpt}}</h5></li>
+        <div class="row">
+        @foreach($goals as $goal)
+            @if($goal->id == $id)
+                <div class="col-md-5" style="background-color: {{$goal->color}}" id="subgoal">
+                    <img id="goal" src="/assets/{{$id}}.png">
+
+                    <div class="box ">
+
+                        <h3>{{$goal->title}}</h3>
+                        <br>
+                        <h5><b>{{$goal->header}}</b></h5>
+                        <h5>{{$goal->description}}</h5>
+                        <br>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading active">
+                            <h3 class="panel-title">
+                                <a class="btn" role="button" data-bs-toggle="collapse"
+                                   data-bs-target="#subgoalCollapse"
+                                   aria-expanded="false" aria-controls="subgoalCollapse"><h3 class="panel-title">Sub-doelen</h3></a>
+                            </h3>
+                            <div class="collapse" id="subgoalCollapse">
+
+                                @foreach($subgoals as $subgoal)
+                                    @if($subgoal->goal_id == $id)
+                                        <div class="row">
+                                            <h5><b>{{$subgoal->name}}:</b> {{$subgoal->description}}</h5>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                            @endif
-                            @endif
-                        @endforeach
-                    </ul>
+                    </div>
                 </div>
+            @endif
+        @endforeach
+
+        <div class="row col-md-4 mt-2">
 
 
+                    @foreach($projects as $project)
+                        @if($project->verified == true && $project->goalid == $id)
+                            <div class="mb-3">
+                                <div class="card">
+                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                        <img
+                                            src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                            class="img-fluid rounded"
+                                        />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {{$project->title}}
+                                        </h5>
+                                        <p class="card-text">
+                                            {{$project->excerpt}}
+                                        </p>
+                                        <a href="/projecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
+                                    </div>
+                                </div>
+                            </div>
+{{--                            <div class="box">--}}
+{{--                                <li><a href="/projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>--}}
+{{--                                    <h5>{{$project->excerpt}}</h5></li>--}}
+
+{{--                            </div>--}}
+                        @endif
+                    @endforeach
+        </div>
         </div>
     </main>
 @endsection

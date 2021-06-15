@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Education extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
-    public function goal() {
-        return $this->belongsToMany(Goal::class);
+    public function path() {
+        return route('opleidingen.show', $this);
     }
-
 }

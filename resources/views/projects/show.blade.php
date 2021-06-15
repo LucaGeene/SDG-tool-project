@@ -2,14 +2,17 @@
 
 @section('content')
     <main>
+        <div class="col-12 text-center">
+            <h1 class="bg-light">{{$project->title}}</h1>
+        </div>
+        <hr class="my-5" />
+
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <li><h4>{{$project->title}}</h4></b></a><br><h5>{{$project->body}}</h5></li>
+                    <br><h5>{{$project->body}}</h5>
                 </div>
-
             </div>
         </div>
     </main>
 @endsection
-
