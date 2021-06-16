@@ -13,6 +13,30 @@
                         <h5>{{$educations->body}}</h5>
                     </li>
                 </div>
+
+                @foreach($projects as $project)
+                    @if($project->verified == true && $project->education == $educations->name)
+                        <div class="mb-3">
+                            <div class="card">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                    <img
+                                        src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                        class="img-fluid rounded"
+                                    />
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{$project->title}}
+                                    </h5>
+                                    <p class="card-text">
+                                        {{$project->excerpt}}
+                                    </p>
+                                    <a href="/projecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </main>

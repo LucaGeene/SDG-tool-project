@@ -27,7 +27,6 @@ Auth::routes();
 
 
 
-
 //routes for doelen
 
 Route::get('/doelen', [goalController::class, 'index']);

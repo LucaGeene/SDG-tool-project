@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Goal;
+use App\Models\Education;
 
 class AdminProjectsController extends Controller
 {
@@ -68,9 +70,13 @@ class AdminProjectsController extends Controller
         $project = new Project();
         $project->goalid = request('goalid');
         $project->title = request('title');
+        $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
-        $project->verified = request('verified');
+        $project->reference_url = request('reference_url');
+        $project->contact_name = request('contact_name');
+        $project->contact_email = request('contact_email');
+        $test = request('verification');
         $project->save();
 
         return redirect('huurders');
@@ -97,20 +103,24 @@ class AdminProjectsController extends Controller
         ]);
 
         $project = Project::find($id);
+        $project->goalid = request('goalid');
         $project->title = request('title');
+        $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
-        $project->goalid = request('goalid');
-        $project->verified = request('verified');
+        $project->reference_url = request('reference_url');
+        $project->contact_name = request('contact_name');
+        $project->contact_email = request('contact_email');
+        $test = request('verification');
         $project->save();
 
-        return redirect('adminProjects.index/' . $project->id);
+        return redirect('adminProjecten/' . $project->id);
     }
 
     public function destroy($id)
     {
         Project::find($id)->delete();
 
-        return redirect('adminProjects.index/');
+        return redirect('adminProjecten/');
     }
 }

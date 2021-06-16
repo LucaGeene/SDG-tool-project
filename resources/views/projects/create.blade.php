@@ -8,7 +8,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center border-primary border bg-light rounded mb-3">
             <div class="card ">
-                <form method="POST" action="/projecten">
+                <form method="POST" action="/projecten" enctype="multipart/form-data">
                     @csrf
 
                     <label for="title" class="h3 mb-1 mt-3">Titel:</label><br>
@@ -67,7 +67,7 @@
                         @endif
                     </div>
 
-                    <label for="body" class="h4 mb-3 mt-3">Uitgebreid uitleg:</label><br>
+                    <label for="body" class="h4 mb-3 mt-3">Uitgebreide uitleg:</label><br>
                     <hr class="my-3 col-md-10">
                     <div class="form-group row ml-3">
 
@@ -87,6 +87,12 @@
                                 <option value="{{$goal->id}}">{{$goal->title}}</option>
                             @endforeach
                         </select>
+                    </div>
+
+                    <label for="image" class="h4 mb-6 mt-3">Upload cover image: (455 x 300)</label><br>
+                    <hr class="my-3 col-md-10">
+                    <div class="input-group mb-3 col-md-10 border-dark mb-3">
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
 
                     <label for="reference_url" class="h3 mb-1 mt-3">URL (voor meer info idk)</label><br>

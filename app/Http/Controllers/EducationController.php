@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Education;
+use App\Models\Project;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -30,7 +31,7 @@ class EducationController extends Controller
     {
         $education = Education::find($id);
 
-        return view( 'educations.show', ['educations' => $education]);
+        return view( 'educations.show', ['educations' => $education, 'projects' => Project::latest()->get()]);
     }
 }
 

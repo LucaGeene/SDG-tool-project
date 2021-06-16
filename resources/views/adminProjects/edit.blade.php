@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="row justify-content-center">
                         <div class="card border-primary">
-                            <form method="POST" action="/admin/{{$project->id}}">
+                            <form method="POST" action="/adminProjecten/{{$project->id}}">
                                 @csrf
                                 @method('PUT')
 
@@ -149,7 +149,7 @@
                                     </div>
                             </form>
                             <div class="form-group ml-3">
-                                <form method="POST" action="/admin/{{ $project->id }}">
+                                <form method="POST" action="/adminProjecten/{{ $project->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-primary" type="submit">Delete</button>
