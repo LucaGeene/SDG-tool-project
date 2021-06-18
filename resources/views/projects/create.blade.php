@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">Project toevoegen</h1>
     </div>
@@ -119,7 +120,7 @@
                             <p class="text-danger">{{$errors->first('contact_email')}}</p>
                         @endif
                     </div>
-
+@auth()
                     <label for="verification" class="h3 mb-1 mt-3">Verificatiecode:</label>
                     <p>Als u een verificatie-code heeft, vul die hieronder in om dit project gelijk op de site toe te laten.</p><br>
                     <hr class="my-3 col-md-10">
@@ -127,6 +128,7 @@
                         <textarea class="mb-3 col-md-10 form-control border-dark" type="text" id="verification"
                                   name="verification"></textarea><br>
                     </div>
+                    @endauth
                     <div class="text-center">
                         <input class="btn btn-primary mb-3" type="submit" value="Submit">
                     </div>
@@ -135,6 +137,6 @@
             </div>
         </div>
     </div>
-
+    </main>
 @endsection
 

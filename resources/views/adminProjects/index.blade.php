@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">Projecten adminpagina</h1>
         <p class="text-dark">
@@ -15,6 +16,9 @@
         <div class=" border-primary border bg-light rounded">
         <h2 class="card-header mb-3 bg-info">Filter</h2>
         <div class="form-group">
+            <div class="col-md-4 mb-3 mt-3 ml-3">
+                <a id='{{ Request::path() === 'projects' ? 'current-page' : '' }}' href="projecten/create" class="btn btn-primary">Project toevoegen</a>
+            </div>
                 <form action="" method="GET">
                     {{--                        <input type="text" name="category" required/>--}}
                     <label class="col-md-1 mb-3" for="verified">verified:</label>
@@ -89,5 +93,5 @@
 {{--                </ul>--}}
             </div>
         </div>
-
+    </main>
 @endsection

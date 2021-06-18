@@ -41,9 +41,11 @@
 </head>
 <body>
 <div id="app">
+    <!--HZ logo-->
     <nav class="navbar navbar-expand-md navbar navbar-dark bg-light shadow-sm">
         <img src="{{ asset('assets/hz-logo.png') }}" height=63mm width=247mm >
 
+        <!-- first 4 buttons of the navbar -->
         <div class="container col-9">
             <a class="navbar-brand font-weight-bold h1" href="{{ url('/') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"  fill="currentColor" class="bi bi-house text-dark" viewBox="0 0 16 16">
@@ -82,6 +84,7 @@
                                 <a class="nav-link text-light text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
+                        <!--dropdown menu-->
                     @else
                         <li class="nav-item dropdown ">
                             <a class="btn btn-light dropdown-toggle text-dark" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
