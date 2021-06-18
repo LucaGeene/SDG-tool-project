@@ -68,9 +68,10 @@ class ProjectsController extends Controller
 
     public function show($id)
     {
+        $educations = Education::find($id);
         $project = Project::find($id);
         if ($project->verified == true) {
-            return view('projects.show', ['project' => $project]);
+            return view('projects.show', ['project' => $project, 'educations' => $educations]);
         } else {
             return view('projects.noperm'); //idk if this works LOL test pls
         }

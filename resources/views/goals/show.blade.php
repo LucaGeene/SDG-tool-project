@@ -6,10 +6,10 @@
         <div class="row">
         @foreach($goals as $goal)
             @if($goal->id == $id)
-                <div class="col-md-5" style="background-color: {{$goal->color}}" id="subgoal">
-                    <img id="goal" src="/assets/{{$id}}.png">
+                <div class="col-md-5 " style="background-color: {{$goal->color}}" id="subgoal">
+                    <img id="goal" class="mb-3" src="/assets/{{$id}}.png">
 
-                    <div class="box ">
+                    <div class="box  ml-3">
 
                         <h3>{{$goal->title}}</h3>
                         <br>
@@ -19,16 +19,14 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading active">
-                            <h3 class="panel-title">
-                                <a class="btn" role="button" data-bs-toggle="collapse"
-                                   data-bs-target="#subgoalCollapse"
-                                   aria-expanded="false" aria-controls="subgoalCollapse"><h3 class="panel-title">Sub-doelen</h3></a>
+                            <h3 class="panel-title text-center mb-3">
+                                Sub-doelen</h3>
                             </h3>
-                            <div class="collapse" id="subgoalCollapse">
+                            <div>
 
                                 @foreach($subgoals as $subgoal)
                                     @if($subgoal->goal_id == $id)
-                                        <div class="row">
+                                        <div class="row ml-1">
                                             <h5><b>{{$subgoal->name}}:</b> {{$subgoal->description}}</h5>
                                         </div>
                                     @endif

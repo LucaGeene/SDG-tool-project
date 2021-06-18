@@ -11,11 +11,12 @@
 
         </p>
     </div>
-    <hr class="my-5" />
+
     <div class="container">
+        <hr class="my-3" />
         <div class=" border-primary border bg-light rounded">
-        <h2 class="card-header mb-3 bg-info">Filter</h2>
-        <div class="form-group">
+        <h2 class="card-header bg-primary text-white">Filter</h2>
+        <div class="row">
             <div class="col-md-4 mb-3 mt-3 ml-3">
                 <a id='{{ Request::path() === 'projects' ? 'current-page' : '' }}' href="projecten/create" class="btn btn-primary">Project toevoegen</a>
             </div>
@@ -62,8 +63,6 @@
 
     <div class="mt-3 col-md-12 offset-md-2">
         <div class="col-md-8">
-{{--                <ul>--}}
-
 
                     @foreach($projects as $project)
                             <div class="mb-3">
@@ -89,8 +88,6 @@
 
                     @endforeach
 
-
-{{--                </ul>--}}
             </div>
         </div>
     </main>

@@ -49,17 +49,17 @@ Route::get('/opleidingen/{id}', [EducationController::class, 'show']);
 //routes for AdminEducations
 //Route::resource('/adminEducations', AdminEducationsController::class);
 //CREATE
-Route::get('/adminEducations/create', [AdminEducationsController::class, 'create']);
-Route::post('/adminEducations', [AdminEducationsController::class, 'store']);
+Route::get('/adminOpleidingen/create', [AdminEducationsController::class, 'create']);
+Route::post('/adminOpleidingen', [AdminEducationsController::class, 'store']);
 //READ
-Route::get('/adminEducations', [AdminEducationsController::class, 'index']);
-Route::get('/adminEducations/{id}', [AdminEducationsController::class, 'show']);
+Route::get('/adminOpleidingen', [AdminEducationsController::class, 'index']);
+Route::get('/adminOpleidingen/{id}', [AdminEducationsController::class, 'show']);
 
 //UPDATE
-Route::get('/adminEducations/{id}/edit', [AdminEducationsController::class, 'edit']);
-Route::put('/adminEducations/{id}', [AdminEducationsController::class, 'update']);
+Route::get('/adminOpleidingen/{id}/edit', [AdminEducationsController::class, 'edit']);
+Route::put('/adminOpleidingen/{id}', [AdminEducationsController::class, 'update']);
 //DELETE
-Route::delete('/adminEducations/{id}', [AdminEducationsController::class, 'destroy']);
+Route::delete('/adminOpleidingen/{id}', [AdminEducationsController::class, 'destroy']);
 
 
 //routes for projects

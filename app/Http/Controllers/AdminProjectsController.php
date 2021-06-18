@@ -54,8 +54,9 @@ class AdminProjectsController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
+        $educations = Education::find($id);
 
-        return view('adminProjects.show', ['project' => $project]);
+        return view('adminProjects.show', ['project' => $project, 'educations' => $educations]);
     }
 
     public function store(Request $request)

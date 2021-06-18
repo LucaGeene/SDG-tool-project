@@ -25,7 +25,7 @@ class GoalSeeder extends Seeder
 
         DB::table('goals')->insert([
             'title' => 'Doel 2: Geen honger',
-            'color' => '#e5b735',
+            'color' => '#DDA83A',
             'header' => 'Beëindig honger en promoot duurzame landbouw',
             'description' => 'In 2030 mag niemand op de wereld meer honger lijden. Iedereen moet toegang hebben tot veilig, voedzaam en voldoende voedsel, het hele jaar door. Volgens het Wereldvoedselprogramma hebben op dit moment 795 miljoen mensen niet genoeg voedsel om een gezond en actief leven te leiden.
                               Dit is ongeveer een op de negen mensen wereldwijd. In sub-Sahara Afrika lijden naar verhouding de meeste mensen honger, een op de vier mensen in deze regio is ondervoed. Ook sterft bijna de helft (45 procent) van de kinderen die voor hun vijfde komen te overlijden aan malnutritie.
@@ -112,7 +112,7 @@ class GoalSeeder extends Seeder
 
         DB::table('goals')->insert([
             'title' => 'Doel 12: Verantwoorde consumptie en productie',
-            'color' => '#c9992d',
+            'color' => '#BE8A2D',
             'header' => 'Verzeker duurzame consumptie- en productiepatronen',
             'description' => 'Zorg voor duurzaam beheer en efficiënt gebruik van natuurlijke hulpbronnen. Het produceren van onze goederen moet met het oog op de groeiende wereldbevolking veel handiger: ‘meer produceren met minder’. Zo moet het gebruik van vervuilende energiebronnen teruggeschroefd, want ondanks de technologische vooruitgang zullen OECD-landen naar schatting nog 35 procent meer energie verbruiken in 2020.
                               We moeten zorgen dat het kleine percentage aan drinkwater dat er is – maar drie procent van de wereldwatervoorraad is zoet water – minder vaak vervuild en verspild wordt. Op het gebied van voedselproductie moet de verdeling beter. Terwijl er bijna 800 miljoen mensen honger hebben, is er in sommige delen van de wereld juist te veel (ongezond) eten, wat zorgt voor hart- en vaatziekten.
