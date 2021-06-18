@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <main>
+    <main class="mt-3">
         <div class="col-12 text-center">
             <h1 class="bg-light">{{$project->title}}</h1>
         </div>

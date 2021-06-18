@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">Opleidingen adminpagina</h1>
         <p class="text-dark">
@@ -27,4 +28,5 @@
             </div>
         </div>
     </div>
+    </main>
 @endsection
