@@ -20,7 +20,9 @@
                             <div class="card">
                                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <img
-                                        src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                        style="height: 300px;"
+                                        src="{{ asset('storage/images/'. $project->image_name) }}"
+                                        onerror="this.onerror=null; this.src='https://mdbootstrap.com/img/new/standard/nature/184.jpg'"
                                         class="img-fluid rounded"
                                     />
                                 </div>
