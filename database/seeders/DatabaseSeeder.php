@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SubgoalsSeeder::class,
             EducationSeeder::class,
             ProjectSeeder::class,
+            BlogSeeder::class
         ]);
 
     }

@@ -91,13 +91,13 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-left drop dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ url('/adminProjecten') }}">Admin projects page</a>
                                     <a class="dropdown-item" href="{{ url('/adminOpleidingen') }}">Admin educations page</a>
                                     <a class="dropdown-item" href="{{ url('/adminOpleidingen/create') }}">Voeg opleiding toe</a>
-<br>
-                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Uitloggen</a>

@@ -10,13 +10,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <img
-                        style="height: 300px;"
-                        src="{{ asset('storage/images/'. $project->image_name) }}"
-                        onerror="this.onerror=null; this.src='https://mdbootstrap.com/img/new/standard/nature/184.jpg'"
-                        class="img-fluid rounded"
-                    />
                     <br><h5>{{$project->body}}</h5>
+
+
+
+
+{{--                    BUTTON BELANGRIJK VOOR BLOGS--}}
+                    <a href="/projecten/{{$project->id}}/blogs">jo ga naar blogs man</a>
                 </div>
             </div>
         </div>

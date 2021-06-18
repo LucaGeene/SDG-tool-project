@@ -38,23 +38,6 @@
                             <p class="text-danger">{{$errors->first('title')}}</p>
                         @endif
                     </div>
-                    {{--                                <div class="input-group mb-3 col-md-10 border-dark mb-3">--}}
-                    {{--                                    <div class="input-group-prepend border-dark">--}}
-                    {{--                                        <label class="input-group-text border-dark" for="excerpt">Opleiding:</label>--}}
-                    {{--                                    </div>--}}
-
-                    {{--                                    <select type="text" class="custom-select col-md-12 border-dark" id="excerpt" name="excerpt">--}}
-                    {{--                                        <option value="Opleidingen"></option>--}}
-                    {{--                                        <option value="HZ onderzoeksgroepen">HZ onderzoeksgroepen</option>--}}
-                    {{--                                        <option value="Campusvoorzieningen">Campusvoorzieningen</option>--}}
-                    {{--                                        <option value="Financiën">Financiën</option>--}}
-                    {{--                                        <option value="ICT">ICT</option>--}}
-                    {{--                                        <option value="Marketing, Communicatie en Internationalisering">Marketing, Communicatie en Internationalisering</option>--}}
-                    {{--                                        <option value="Onderwijs, Onderzoek en Kwaliteit">Onderwijs, Onderzoek en Kwaliteit</option>--}}
-                    {{--                                        <option value="PO&O">PO&O</option>--}}
-                    {{--                                        <option value="Studentvoorzieningen">Studentvoorzieningen</option>--}}
-                    {{--                                    </select>--}}
-                    {{--                                </div>--}}
 
                     <label for="excerpt" class="h4 mb-3 mt-3">Korte beschrijving:</label><br>
                     <p>Dit komt in het overzicht te staan.</p>
@@ -107,26 +90,6 @@
                         @endif
                     </div>
 
-                    <label for="contact_name" class="h3 mb-1 mt-3">Naam:</label><br>
-                    <hr class="my-3 col-md-10">
-                    <div class="form-group row ml-3">
-                        <input class="mb-1 col-md-10 form-control border-dark" type="text" id="contact_name" name="contact_name"
-                               value="{{old('contact_name')}}"><br>
-                        @if($errors->has('contact_name'))
-                            <p class="text-danger">{{$errors->first('contact_name')}}</p>
-                        @endif
-                    </div>
-
-                    <label for="contact_email" class="h3 mb-1 mt-3">E-mail:</label><br>
-                    <hr class="my-3 col-md-10">
-                    <div class="form-group row ml-3">
-                        <input class="mb-1 col-md-10 form-control border-dark" type="email" id="contact_email" name="contact_email"
-                               value="{{old('contact_email')}}"><br>
-                        @if($errors->has('contact_email'))
-                            <p class="text-danger">{{$errors->first('contact_email')}}</p>
-                        @endif
-                    </div>
-@auth()
                     <label for="verification" class="h3 mb-1 mt-3">Verificatiecode:</label>
                     <p>Als u een verificatie-code heeft, vul die hieronder in om dit project gelijk op de site toe te laten.</p><br>
                     <hr class="my-3 col-md-10">
@@ -134,7 +97,7 @@
                         <textarea class="mb-3 col-md-10 form-control border-dark" type="text" id="verification"
                                   name="verification"></textarea><br>
                     </div>
-                    @endauth
+
                     <div class="text-center">
                         <input class="btn btn-primary mb-3" type="submit" value="Submit">
                     </div>

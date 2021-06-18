@@ -107,6 +107,7 @@ class ProjectsController extends Controller
         $project->reference_url = request('reference_url');
         $project->contact_name = request('contact_name');
         $project->contact_email = request('contact_email');
+
         $test = request('verification');
         if ($test == "1234") {
             $project->verified = 1;
