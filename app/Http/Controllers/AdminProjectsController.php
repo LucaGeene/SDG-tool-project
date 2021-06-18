@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Education;
-use App\Models\Goal;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Goal;
+use App\Models\Education;
 
 class AdminProjectsController extends Controller
 {
@@ -70,9 +70,13 @@ class AdminProjectsController extends Controller
         $project = new Project();
         $project->goalid = request('goalid');
         $project->title = request('title');
+        $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
-        $project->verified = request('verified');
+        $project->reference_url = request('reference_url');
+        $project->contact_name = request('contact_name');
+        $project->contact_email = request('contact_email');
+        $test = request('verification');
         $project->save();
 
         return redirect('huurders');
@@ -106,10 +110,12 @@ class AdminProjectsController extends Controller
         $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
+
         $project->verified = request('verified');
         $project->reference_url = request('reference_url');
         $project->contact_name = request('contact_name');
         $project->contact_email = request('contact_email');
+
         $project->save();
 
         return redirect('adminProjecten/' . $project->id);

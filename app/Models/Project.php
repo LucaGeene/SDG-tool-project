@@ -9,8 +9,14 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function goal() {
+    public function goal()
+    {
         return $this->belongsToMany(Goal::class);
+    }
+
+    public function education()
+    {
+        return $this->belongsToMany(Education::class);
     }
 
 }

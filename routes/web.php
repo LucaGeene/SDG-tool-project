@@ -4,13 +4,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectsController;
 use App\Http\Controllers\goalController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\AdminEducationsController;
 use App\Http\Controllers\AdminProjectsController;
-use App\Models\Project;
-use App\Models\Goal;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +19,7 @@ use App\Models\Goal;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//route voor dashboardController
+//route for dashboardController
 
 Route::get('/', [DashboardController::class, 'index' ]);
 //route voor login
@@ -29,37 +27,30 @@ Auth::routes();
 
 
 
-//routes voor doelen
-
 //routes for doelen
 
 Route::get('/doelen', [goalController::class, 'index']);
 Route::get('/doelen/{goal}', [goalController::class, 'show']);
 
-//routes voor opleidingen
+
 
 //routes for educations
 //READ
 Route::get('/opleidingen', [EducationController::class, 'index']);
 Route::get('/opleidingen/{id}', [EducationController::class, 'show']);
 
-//Route::resource('/opleidingen', EducationController::class);
-
-
 //routes for AdminEducations
-//Route::resource('/adminEducations', AdminEducationsController::class);
-//CREATE
-Route::get('/adminEducations/create', [AdminEducationsController::class, 'create']);
-Route::post('/adminEducations', [AdminEducationsController::class, 'store']);
 //READ
-Route::get('/adminEducations', [AdminEducationsController::class, 'index']);
-Route::get('/adminEducations/{id}', [AdminEducationsController::class, 'show']);
-
+Route::get('adminOpleidingen', [AdminEducationsController::class, 'index']);
+Route::get('adminOpleidingen/{id}', [AdminEducationsController::class, 'show']);
+//CREATE
+Route::get('adminOpleidingen/create', [AdminEducationsController::class, 'create']);
+Route::post('adminOpleidingen', [AdminEducationsController::class, 'store']);
 //UPDATE
-Route::get('/adminEducations/{id}/edit', [AdminEducationsController::class, 'edit']);
-Route::put('/adminEducations/{id}', [AdminEducationsController::class, 'update']);
+Route::get('adminOpleidingen/{education}/edit', [AdminEducationsController::class, 'edit']);
+Route::put('adminOpleidingen/{education}', [AdminEducationsController::class, 'update']);
 //DELETE
-Route::delete('/adminEducations/{id}', [AdminEducationsController::class, 'destroy']);
+Route::delete('adminOpleidingen/{education}', [AdminEducationsController::class, 'destroy']);
 
 
 //routes for projects

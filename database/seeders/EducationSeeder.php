@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 class EducationSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds with the Educations of the HZ.
+     * All non full-time educations are commented.
      *
      * @return void
      */
