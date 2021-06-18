@@ -28,7 +28,8 @@ class GoalController extends Controller
      */
     public function show($id)
     {
-        return view('goals.show', ['id'=>$id, 'projects'=> Project::latest()->get(), 'goals' => Goal::all(), 'subgoals' => Subgoal::all(), 'users'=>User::latest()->get()]);
+        return view('goals.show', ['id' => $id, 'projects' => Project::latest()->get(), 'goals' => Goal::all(),
+            'subgoals' => Subgoal::all(), 'users' => User::latest()->get()]);
     }
 
 }
