@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">Voeg een opleiding toe</h1>
     </div>
     <hr class="my-5" />
+
     <div class="container">
         <div class="row mt-3">
 
@@ -15,6 +18,7 @@
                             <form method="POST" action="/adminEducations">
                                 @csrf
 
+{{--                                Creating input for the education name                                --}}
                                 <div class="form-group flex-row-reverse ml-3">
                                     <label for="name" class="h3 mb-1 mt-3">Naam Opleiding:</label><br>
                                     <hr class="my-3">
@@ -26,6 +30,7 @@
                                     @endif
                                 </div>
 
+{{--                                Creating textarea for the education description                                --}}
                                 <div class="form-group flex-row-reverse ml-3">
                                     <label for="description" class="h3 mb-1 mt-3">Description:</label><br>
                                     <hr class="my-3">
@@ -37,6 +42,7 @@
                                     @endif
                                 </div>
 
+{{--                                Creating textarea for the education description                                --}}
                                 <div class="form-group flex-row-reverse ml-3">
                                     <label for="body" class="h3 mb-1 mt-3">Body:</label><br>
                                     <hr class="my-3">
@@ -60,5 +66,6 @@
             </div>
         </div>
     </div>
+    </main>
 @endsection
 

@@ -19,9 +19,11 @@ class CreateProjectsTable extends Migration
             $table->text('goalid'); // Needs go to, move to different table to link projects and goals/subgoals
             $table->string('title');
             $table->string('education');
+            $table->text('category')->nullable();
             $table->text('excerpt');
             $table->text('body');
             $table->string('reference_url')->nullable();
+            $table->string('image_name')->nullable();
             $table->string('contact_name')->nullable();
             $table->string('contact_email')->nullable();
             $table->timestamps();

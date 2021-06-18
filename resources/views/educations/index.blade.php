@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">De opleidingen van HZ</h1>
         <p class="text-dark">
@@ -18,6 +19,7 @@
         <div class="row">
             <div class="col-md-8">
                 <ul>
+{{--                    Displays all the educations from the database                    --}}
                     @foreach($educations as $education)
                         <div class="box bg-danger m-3">
                             <li>
@@ -30,4 +32,5 @@
             </div>
 {{--        </div>--}}
     </div>
+    </main>
 @endsection

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">Project aanpassen</h1>
     </div>
@@ -9,7 +10,7 @@
             <div class="col-md-8">
                 <div class="row justify-content-center">
                         <div class="card border-primary">
-                            <form method="POST" action="/admin/{{$project->id}}">
+                            <form method="POST" action="/adminProjecten/{{$project->id}}">
                                 @csrf
                                 @method('PUT')
 
@@ -147,9 +148,10 @@
                                 </div>
                                             </div>
                                     </div>
+
                             </form>
                             <div class="form-group ml-3">
-                                <form method="POST" action="/admin/{{ $project->id }}">
+                                <form method="POST" action="/adminProjecten/{{ $project->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-primary" type="submit">Delete</button>
@@ -157,13 +159,7 @@
                             </div>
                         </div>
                     </div>
-
-
-            <div class="col-md-4">
-
-            </div>
-
         </div>
     </div>
-
+    </main>>
 @endsection
