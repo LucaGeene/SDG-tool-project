@@ -30,7 +30,7 @@
                         <div class="col-md-6 gx-5 mb-4">
                             <h4><strong>doelen?</strong></h4>
                             <p class="text-dark">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+                                Facilis consequatur
                                 eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
                                 sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
                             </p>
