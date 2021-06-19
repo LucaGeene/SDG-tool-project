@@ -17,7 +17,8 @@
         "laravel/ui": "^3.2",
         "spatie/laravel-cookie-consent": "^2.12",
       "ext-mysqli": "*",
-      "ext-json": "*"
+      "ext-json": "*",
+      "ext-pgsql": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
