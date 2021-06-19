@@ -85,9 +85,6 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
 
-        $image_name = $request->file('image')->getClientOriginalName();
-        request()->file('image')->storeAs('public/images/', $image_name);
-
         request()->validate([
             'title' => 'required',
             'goalid' => 'required',
@@ -107,6 +104,11 @@ class ProjectsController extends Controller
         $project->reference_url = request('reference_url');
         $project->contact_name = request('contact_name');
         $project->contact_email = request('contact_email');
+        if ($request->hasFile('image')) {
+            $image_name = $request->file('image')->getClientOriginalName();
+            request()->file('image')->storeAs('public/images/', $image_name);
+            $project->image_name = $image_name;
+        }
         $test = request('verification');
         if ($test == "1234") {
             $project->verified = 1;
