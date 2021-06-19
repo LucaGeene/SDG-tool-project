@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\projectsController;
-use App\Http\Controllers\goalController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\GoalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\AdminEducationsController;
@@ -29,8 +29,8 @@ Auth::routes();
 
 //routes for doelen
 
-Route::get('/doelen', [goalController::class, 'index']);
-Route::get('/doelen/{goal}', [goalController::class, 'show']);
+Route::get('/doelen', [GoalController::class, 'index']);
+Route::get('/doelen/{goal}', [GoalController::class, 'show']);
 
 
 
