@@ -40,12 +40,12 @@ Route::get('/opleidingen', [EducationController::class, 'index']);
 Route::get('/opleidingen/{id}', [EducationController::class, 'show']);
 
 //routes for AdminEducations
-//READ
-Route::get('adminOpleidingen', [AdminEducationsController::class, 'index']);
-Route::get('adminOpleidingen/{id}', [AdminEducationsController::class, 'show']);
 //CREATE
 Route::get('adminOpleidingen/create', [AdminEducationsController::class, 'create']);
 Route::post('adminOpleidingen', [AdminEducationsController::class, 'store']);
+//READ
+Route::get('adminOpleidingen', [AdminEducationsController::class, 'index']);
+Route::get('adminOpleidingen/{id}', [AdminEducationsController::class, 'show']);
 //UPDATE
 Route::get('adminOpleidingen/{education}/edit', [AdminEducationsController::class, 'edit']);
 Route::put('adminOpleidingen/{education}', [AdminEducationsController::class, 'update']);

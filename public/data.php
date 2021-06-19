@@ -2,7 +2,7 @@
 
 header('Content-Type: application/json');
 
-$conn = mysqli_connect("localhost", "root", NULL, "sample_project");
+$conn = mysqli_connect("localhost", "root", NULL, "laravel");
 
 
 $sqlQuery = "select COUNT(goalid) as projectsum from projects where verified = 1 group by goalid";
