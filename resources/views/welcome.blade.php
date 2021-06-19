@@ -30,9 +30,7 @@
                         <div class="col-md-6 gx-5 mb-4">
                             <h4><strong>doelen?</strong></h4>
                             <p class="text-dark">
-                                Facilis consequatur
-                                eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
-                                sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+                                Hoi, dit is een test voor DevOps!
                             </p>
                         </div>
 
