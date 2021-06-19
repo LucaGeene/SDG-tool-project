@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             GoalSeeder::class,
             SubgoalsSeeder::class,
             EducationSeeder::class,
-            ProjectSeeder::class,
+            Projectseeder::class,
         ]);
 
     }
