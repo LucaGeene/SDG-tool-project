@@ -20,37 +20,26 @@ class AdminProjectsController extends Controller
 
         $verify = $request->input('verify');
         $goalid = $request->input('goalid');
-        $filter = array();
-        $filter[0] = $verify;
-        $filter[1] = $goalid;
 
-        if ($filter[0] == null && $filter[1] == null) {
-            return view('adminProjects.index', [
-                'projects' => Project::latest()->get(), 'filterarray' => $filter
-            ]);
-        } elseif ($filter[1] == null) {
-            return view('adminProjects.index', [
-                'projects' => Project::latest()
-                    ->where('verified', '=', $filter[0])
-                    ->get(),
-                'filterarray' => $filter
-            ]);
-        } elseif ($filter[0] == null) {
-            return view('adminProjects.index', [
-                'projects' => Project::latest()
-                    ->where('goalid', '=', $filter[1])
-                    ->get(),
-                'filterarray' => $filter
-            ]);
-        } else {
-            return view('adminProjects.index', [
-                'projects' => Project::latest()
-                    ->where('verified', '=', $filter[0])
-                    ->where('goalid', '=', $filter[1])
-                    ->get(),
-                'filterarray' => $filter
-            ]);
+        $search = $request->input('search');
+
+        $projects_query = Project::latest();
+
+        if ($goalid) {
+            $projects_query = $projects_query->where('goalid', '=', $goalid);
         }
+        if ($verify) {
+            $projects_query = $projects_query->where('verified', '=', $verify);
+        }
+        if ($search) {
+            $projects_query = $projects_query->where('title', 'like' , '%'.$search.'%');
+
+        }
+
+        return view('adminProjects.index', [
+            'projects' => $projects_query->get()
+        ]);
+
     }
 
     public function show($id)

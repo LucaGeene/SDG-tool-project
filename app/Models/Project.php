@@ -9,8 +9,15 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function goal()
-    {
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    public function goal() {
+
         return $this->belongsToMany(Goal::class);
     }
 

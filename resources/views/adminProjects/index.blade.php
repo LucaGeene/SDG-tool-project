@@ -11,7 +11,6 @@
 
         </p>
     </div>
-
     <div class="container">
         <hr class="my-3" />
         <div class=" border-primary border bg-light rounded">
@@ -21,34 +20,35 @@
                 <a id='{{ Request::path() === 'projects' ? 'current-page' : '' }}' href="projecten/create" class="btn btn-primary">Project toevoegen</a>
             </div>
                 <form action="" method="GET">
-                    {{--                        <input type="text" name="category" required/>--}}
+                    {{--                    Searchbar--}}
+                    <h3 class="col-md-2">Search:</h3>
+                    <input type="text" class="mb-1 col-md-10 form-control border-dark" name="search" id="search"/>
 
                     <label class="col-md-1 mb-3" for="verified">verified:</label>
                     <input class="form-check-input" type="radio" name="verify" value="1"/>
                     <label class="col-2 mb-3" for="verified">not verified:</label>
                     <input class="form-check-input" type="radio" name="verify" value="0"/>
-
                     <div class="col-md-5">
-                    <select type="text" class="form-select form-select-lg mb-3" id="goalid" name="goalid">
-                        <option></option>
-                        <option value="1">1.Geen armoede</option>
-                        <option value="2">2.Geen honger</option>
-                        <option value="3">3.Goede gezondheid & welzijn</option>
-                        <option value="4">4.Kwaliteitsonderwijs</option>
-                        <option value="5">5.Gendergelijkheid</option>
-                        <option value="6">6.Schoon water en sanitair</option>
-                        <option value="7">7.Betaalbare- en duurzame energie</option>
-                        <option value="8">8.Eerlijk werk en economische groei</option>
-                        <option value="9">9.Industrie, Innovatie en Infrastructuur</option>
-                        <option value="10">10.Ongelijkheid verminderen</option>
-                        <option value="11">11.Duurzame Steden en Gemeenschappen</option>
-                        <option value="12">12.Verantwoorde Consumptie en Productie</option>
-                        <option value="13">13.Klimaatactie</option>
-                        <option value="14">14.Leven in het water</option>
-                        <option value="15">15.Leven op het Land</option>
-                        <option value="16">16.Vrede, justitie en sterke publieke diensten</option>
-                        <option value="17">17.Partnerschap om doelstellingen te bereiken</option>
-                    </select>
+                        <select type="text" class="form-select form-select-lg mb-3" id="goalid" name="goalid">
+                            <option></option>
+                            <option value="1">1.Geen armoede</option>
+                            <option value="2">2.Geen honger</option>
+                            <option value="3">3.Goede gezondheid & welzijn</option>
+                            <option value="4">4.Kwaliteitsonderwijs</option>
+                            <option value="5">5.Gendergelijkheid</option>
+                            <option value="6">6.Schoon water en sanitair</option>
+                            <option value="7">7.Betaalbare- en duurzame energie</option>
+                            <option value="8">8.Eerlijk werk en economische groei</option>
+                            <option value="9">9.Industrie, Innovatie en Infrastructuur</option>
+                            <option value="10">10.Ongelijkheid verminderen</option>
+                            <option value="11">11.Duurzame Steden en Gemeenschappen</option>
+                            <option value="12">12.Verantwoorde Consumptie en Productie</option>
+                            <option value="13">13.Klimaatactie</option>
+                            <option value="14">14.Leven in het water</option>
+                            <option value="15">15.Leven op het Land</option>
+                            <option value="16">16.Vrede, justitie en sterke publieke diensten</option>
+                            <option value="17">17.Partnerschap om doelstellingen te bereiken</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-primary ml-3 mb-3">Filter</button>
@@ -60,33 +60,36 @@
                     <a class="btn btn-primary ml-3 mb-3"  href="{{ url('/adminProjecten') }}">Reset</a>
                     </div>
                 </div>
-
+  {{--            /filter--}}
+  
     <div class="mt-3 col-md-12 offset-md-2">
         <div class="col-md-8">
+              
 
-                    @foreach($projects as $project)
-                            <div class="mb-3">
-                                <div class="card-columns">
-                                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                        <img
-                                            src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                            class="img-fluid rounded"
-                                        />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {{$project->title}}
-                                        </h5>
-                                        <p class="card-text">
-                                            {{$project->excerpt}}
-                                        </p>
-                                        <a href="adminProjecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <hr class="my-3"/>
 
-                    @endforeach
+            @foreach($projects as $project)
+                <div class="mb-3">
+                    <div class="card-columns">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img
+                                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                class="img-fluid rounded"
+                            />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{$project->title}}
+                            </h5>
+                            <p class="card-text">
+                                {{$project->excerpt}}
+                            </p>
+                            <a href="adminProjecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-3"/>
+
+            @endforeach
 
             </div>
         </div>
