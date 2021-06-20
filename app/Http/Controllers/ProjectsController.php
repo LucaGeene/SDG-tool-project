@@ -13,90 +13,36 @@ class ProjectsController extends Controller
 
     public function index(Request $request)
     {
-        //get all from database
+        //get all educations/goals from database for the dropdown selection
         $educations = Education::all();
         $goals = Goal::all();
         //filter
-        //assign inputs from filter to variables
+        //store inputs from filter to variables
+        $search = $request->input('search');
         $goalid = $request->input('goalid');
         $education = $request->input('education');
-        $search = $request->input('search');
 
+        //define query for projects to get
         $projects_query = Project::latest();
-
+        //if a certain option is used it is added to the query
+        if ($search) {
+            $projects_query = $projects_query->where('title', 'like' , '%'.$search.'%');
+        }
         if ($goalid) {
             $projects_query = $projects_query->where('goalid', '=', $goalid);
         }
         if ($education) {
             $projects_query = $projects_query->where('education', '=', $education);
         }
-        if ($search) {
-            $projects_query = $projects_query->where('title', 'like' , '%'.$search.'%');
-        }
+        //returns the view with the selected options
 
         return view('projects.index', [
             'projects' => $projects_query->get(),
             'goals' => $goals,
-            'educations' => $educations
-
+            'educations' => $educations,
+            'search' => $search
         ]);
     }
-    //old filter
-//        $filter = array();
-//        //assign variables to the array
-//        $filter[0] = $goalid;
-//        $filter[1] = $education;
-    //$projects_query = $projects_query->where('goalid', 'like' , '%'.$goalid.'%');
-
-//        //if neither filter options are used
-//        if ($filter[0] == null && $filter[1] == null) {
-//            return view('projects.index', [
-//                'projects' => Project::latest()->get(),
-//                'filterarray' => $filter,
-//                'goals' => $goals,
-//                'educations' => $educations
-//
-//            ]);
-//            //if only SDG-goals filter is used
-//            //returns projects with a certain SDG-Goal id
-//        } elseif ($filter[1] == null) {
-//            return view('projects.index', [
-//                'projects' => Project::latest()
-//                    ->where('goalid', '=', $filter[0])
-//                    ->get(),
-//                'filterarray' => $filter,
-//                'goals' => $goals,
-//                'educations' => $educations
-//
-//            ]);
-//            //if only Educations filter is used
-//            //returns projects with a certain Education id
-//        } elseif ($filter[0] == null) {
-//            return view('projects.index', [
-//                'projects' => Project::latest()
-//                    ->where('education', '=', $filter[1])
-//                    ->get(),
-//                //send all goals and educations from database as variables to use in dropdown menu
-//                'goals' => $goals,
-//                'educations' => $educations
-//
-//            ]);
-//            //if both filter options are used
-//            //returns projects with a certain SDG-Goal id
-//            //returns projects with a certain Education id
-//        } else {
-//            return view('projects.index', [
-//                'projects' => Project::latest()
-//                    ->where('goalid', '=', $filter[0])
-//                    ->where('education', '=', $filter[1])
-//                    ->get(),
-//                //send all goals and educations from database as variables to use in dropdown menu
-//                'goals' => $goals,
-//                'educations' => $educations
-//
-//            ]);
-//        }
-
 
     public function show($id)
     {
@@ -127,7 +73,7 @@ class ProjectsController extends Controller
             'education' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
-            'contact_name' => 'required',
+
         ]);
         //assign to database from form
         $project = Project::make($data);

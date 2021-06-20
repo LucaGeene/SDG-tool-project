@@ -13,7 +13,7 @@
                 <h2 class="card-header bg-primary ht-3 text-white">Blog aanmaken</h2>
                 <div class="row">
 
-                    {{--Project aanmaken--}}
+                    <!--Project aanmaken-->
                     <div class="col-md-4 mb-3 mt-3 ml-3">
                         <a id='{{ Request::path() === 'blogs' ? 'current-page' : '' }}' href="/projecten/{{$project}}/blogs/create" class="btn btn-primary">Blog toevoegen</a>
                     </div>
@@ -22,7 +22,7 @@
             </div>
 
 
-        {{--Projecten lijst--}}
+        <!--Projecten lijst-->
         <div class="mt-3 col-md-12">
             @foreach($blogs as $blog)
 

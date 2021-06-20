@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 
 class Upload extends Controller
 {
+    /**
+     * Creates new form file-upload
+     *
+     */
     public function createForm(){
         return view('file-upload');
     }
 
+    /**
+     * Creates and stores uploaded file
+     *
+     */
     public function fileUpload(Request $req){
         $req->validate([
             'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'

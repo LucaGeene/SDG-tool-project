@@ -40,7 +40,7 @@
 
         <div class="col-md-7 mt-2">
 
-
+                    <!--shows all verified projects for the selected goal-->
                     @foreach($projects as $project)
                         @if($project->verified == true && $project->goalid == $id)
                             <div class="col-md-6 mb-3">

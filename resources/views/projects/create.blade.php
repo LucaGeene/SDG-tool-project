@@ -11,7 +11,7 @@
             <div class="card ">
                 <form method="POST" action="/projecten" enctype="multipart/form-data">
                     @csrf
-                    {{--title--}}
+                    <!--title-->
                     <label for="title" class="h3 mb-1 mt-3">Titel:</label><br>
                     <hr class="my-3 col-md-10">
                     <div class="form-group row ml-3">
@@ -22,7 +22,7 @@
                             <p class="text-danger">{{$errors->first('title')}}</p>
                         @endif
                     </div>
-                    {{--education--}}
+                    <!--education-->
                     <label for="education" class="h3 mb-1 mt-3">Opleiding:</label><br>
                     <hr class="my-3 col-md-10">
                     <div class="input-group mb-3 col-md-10 border-dark mb-3">
@@ -38,8 +38,8 @@
                             <p class="text-danger">{{$errors->first('title')}}</p>
                         @endif
                     </div>
-					
-                    {{--excerpt--}}
+
+                    <!--excerpt-->
                     <label for="excerpt" class="h4 mb-3 mt-3">Korte beschrijving:</label><br>
                     <p>Dit komt in het overzicht te staan.</p>
                     <hr class="my-3 col-md-10">
@@ -52,7 +52,7 @@
                         @endif
                     </div>
 
-                    {{--body--}}
+                    <!--body-->
                     <label for="body" class="h4 mb-3 mt-3">Uitgebreidere uitleg:</label><br>
                     <hr class="my-3 col-md-10">
                     <div class="form-group row ml-3">
@@ -63,7 +63,7 @@
                             <p class="text-danger">{{$errors->first('body')}}</p>
                         @endif
                     </div>
-                    {{--SDG-Goal--}}
+                    <!--SDG-Goal-->
                     <label for="goalid" class="h4 mb-6 mt-3">SDG doel:</label><br>
                     <hr class="my-3 col-md-10">
                     <div class="input-group mb-3 col-md-10 border-dark mb-3">
@@ -75,16 +75,16 @@
                         </select>
                     </div>
 
-{{--image uploading for header--}}
+                    <!--image uploading for header-->
                     <label for="image" class="h4 mb-6 mt-3">Upload cover image: (455 x 300)</label><br>
                     <hr class="my-3 col-md-10">
                     <div class="input-group mb-3 col-md-10 border-dark mb-3">
                         <input type="file" class="form-control" id="image" name="image">
                     </div>
-					
-{{--link--}}
+
+                    <!--link-->
                     <label for="reference_url" class="h3 mb-1 mt-3">Link voor extra informatie:</label><br>
-                    
+
                     <hr class="my-3 col-md-10">
                     <div class="form-group row ml-3">
 

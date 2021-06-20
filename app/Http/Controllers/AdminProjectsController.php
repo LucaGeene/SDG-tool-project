@@ -17,29 +17,38 @@ class AdminProjectsController extends Controller
 
     public function index(Request $request)
     {
-
-        $verify = $request->input('verify');
-        $goalid = $request->input('goalid');
-
+        //get all educations/goals from database for the dropdown selection
+        $educations = Education::all();
+        $goals = Goal::all();
+        //filter
+        //store inputs from filter to variables
         $search = $request->input('search');
-
+        $goalid = $request->input('goalid');
+        $education = $request->input('education');
+        $verify = $request->input('verify');
+        //define query for projects to get
         $projects_query = Project::latest();
-
+        //if a certain option is used it is added to the query
+        if ($search) {
+            $projects_query = $projects_query->where('title', 'like', '%' . $search . '%');
+        }
         if ($goalid) {
             $projects_query = $projects_query->where('goalid', '=', $goalid);
+        }
+        if ($education) {
+            $projects_query = $projects_query->where('education', '=', $education);
         }
         if ($verify) {
             $projects_query = $projects_query->where('verified', '=', $verify);
         }
-        if ($search) {
-            $projects_query = $projects_query->where('title', 'like' , '%'.$search.'%');
 
-        }
-
+        //returns the view with the selected options
         return view('adminProjects.index', [
-            'projects' => $projects_query->get()
+            'projects' => $projects_query->get(),
+            'goals' => $goals,
+            'educations' => $educations,
+            'search' => $search
         ]);
-
     }
 
     public function show($id)
@@ -70,7 +79,6 @@ class AdminProjectsController extends Controller
             'education' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
-            'contact_name' => 'required',
             'verified' => 'required',
         ]);
 
@@ -83,9 +91,6 @@ class AdminProjectsController extends Controller
 
         $project->verified = request('verified');
         $project->reference_url = request('reference_url');
-        $project->contact_name = request('contact_name');
-        $project->contact_email = request('contact_email');
-
         $project->save();
 
         return redirect('adminProjecten/' . $project->id);

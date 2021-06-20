@@ -14,10 +14,10 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="card border-primary">
-                            <form method="POST" action="/adminEducations">
+                            <form method="POST" action="/adminOpleidingen">
                                 @csrf
 
-{{--                                Creating input for the education name                                --}}
+                                <!--Creating input for the education name-->
                                 <div class="form-group flex-row-reverse ml-3">
                                     <label for="name" class="h3 mb-1 mt-3">Naam Opleiding:</label><br>
                                     <hr class="my-3">
@@ -29,7 +29,7 @@
                                     @endif
                                 </div>
 
-{{--                                Creating textarea for the education description                                --}}
+                                <!--Creating textarea for the education description-->
                                 <div class="form-group flex-row-reverse ml-3">
                                     <label for="description" class="h3 mb-1 mt-3">Description:</label><br>
                                     <hr class="my-3">
@@ -41,7 +41,7 @@
                                     @endif
                                 </div>
 
-{{--                                Creating textarea for the education description                                --}}
+                                <!--Creating textarea for the education description-->
                                 <div class="form-group flex-row-reverse ml-3">
                                     <label for="body" class="h3 mb-1 mt-3">Body:</label><br>
                                     <hr class="my-3">

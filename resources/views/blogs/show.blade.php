@@ -40,6 +40,7 @@
 
     </main>
     <script>
+        <!--requests a password when deleting a blog-->
         function do_check() {
             let return_value = prompt("Vul de code in om het te verwijderen");
             if (return_value === "1234")

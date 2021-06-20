@@ -3,7 +3,6 @@
 @section('content')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-    {{--    <script type="text/javascript" src="{{ asset('js/Chart.min.js') }}"></script>--}}
     <header>
 
 
@@ -27,7 +26,9 @@
                         <div class="col-md-6 gx-5 mb-4">
                             <h4><strong>doelen?</strong></h4>
                             <p class="text-dark">
-                                Hoi, dit is een test voor DevOps!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
+                                nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
+                                alias, unde optio accusantium soluta, iusto molestiae adipisci et?
                             </p>
                         </div>
 
@@ -88,8 +89,10 @@
                 </div>
 
                 <script>
+                    <!--Graph with projects per SDG goal-->
                     let count = [];
                     let data;
+                    // Calls for external file to collect data from database
                     $.post("{{ asset('data.php') }}",
 
                         function gatherData(data) {
@@ -145,27 +148,9 @@
 
                 </script>
 
-
-                {{--                        // let g = document.getElementById('countProjectsChart');--}}
-                {{--                        // for (let i = 0, len = g.children.length; i < len; i++)--}}
-                {{--                        // {--}}
-                {{--                        //--}}
-                {{--                        //     // TODO add clickable bars, to redirect to clicked goal.--}}
-                {{--                        //     (function(index){--}}
-                {{--                        //         g.children[i].onclick = function(){--}}
-                {{--                        //             alert('lol')  ;--}}
-                {{--                        //         }--}}
-                {{--                        //--}}
-                {{--                        //     })(i);--}}
-                {{--                        // }--}}
-                {{--                    </script>--}}
-
-
-                {{--                </div>--}}
                 <hr class="my-3"/>
 
             </div>
         </main>
-        <!--Main layout-->
 
 @endsection

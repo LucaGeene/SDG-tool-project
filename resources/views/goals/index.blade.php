@@ -19,7 +19,7 @@
             </header>
         </div>
         <div class="container col-10">
-
+            <!--displays all goals-->
             <hr class="mt-3"/>
             <div class="row">
                 <div class=" col-sm-2 mb-4 rounded"><a href="doelen/1"><img src="assets/1.png" class="img-fluid rounded"></a></div>

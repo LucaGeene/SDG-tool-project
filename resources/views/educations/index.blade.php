@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8">
                 <ul>
-{{--                    Displays all the educations from the database                    --}}
+                    <!--Displays all the educations from the database-->
                     @foreach($educations as $education)
                         <div class="box">
                             <li>

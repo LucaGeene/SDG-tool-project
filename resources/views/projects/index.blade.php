@@ -21,15 +21,15 @@
                     <a id='{{ Request::path() === 'projects' ? 'current-page' : '' }}' href="projecten/create"
                        class="btn btn-primary">Project toevoegen</a>
                 </div>
-                {{--             Filter section--}}
+                <!--Filter section-->
                 <form action="" method="GET">
-                    {{--                    Searchbar--}}
-                    <h3 class="col-md-2">Search:</h3>
-                    <input type="text" class="mb-1 col-md-10 form-control border-dark" name="search" id="search"/>
+                    <!--Searchbar-->
+                    <h3 class="col-md-2 ml-3">Search:</h3>
+                    <input type="text" class="mb-1 col-md-4 form-control border-dark ml-3" name="search" id="search"/>
 
 
 
-                    {{--                select SDG-goal--}}
+                    <!--select SDG-goal-->
                     <h3 class="col-md-2">SDG-doelen:</h3>
                     <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="goalid" name="goalid">
                         <option>{{ old('goalid') }}</option>
@@ -39,11 +39,11 @@
 
                     </select>
 
-                    {{--                    select education--}}
+                    <!--select education-->
                     <div class="col-md-4">
                         <h3>Opleidingen:</h3>
                     </div>
-                    <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="education" name="education">
+                    <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="education" name="education" >
                         <option></option>
                         @foreach($educations as $education)
                             <option value="{{$education->name}}">{{$education->name}}</option>
@@ -60,18 +60,20 @@
     </div>
     <div class="mt-3 offset-2">
         <div class="">
-            {{--                <ul>--}}
+
             @foreach($projects as $project)
                 @if($project->verified == true)
 
                     <div class="card-columns">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                             <img
-                                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                src="{{ asset('storage/images/'. $project->image_name) }}"
+                                onerror="this.onerror=null; this.src='https://mdbootstrap.com/img/new/standard/nature/184.jpg'"
                                 class="img-fluid rounded"
                             />
                         </div>
                         <div class="card-body">
+
                             <h2 class="card-title">
                                 {{$project->title}}
                             </h2>
@@ -80,9 +82,8 @@
                             </p>
                             <p class="card-text">
                                 {{$project->excerpt}}
-                                {{--                                            Maar niet alles tho--}}
                             </p>
-							
+
                             <div class="container float-right">
                                 <h5></h5>
                             </div>
