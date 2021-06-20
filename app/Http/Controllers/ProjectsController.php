@@ -85,6 +85,7 @@ class ProjectsController extends Controller
 
     public function store(Request $request)
     {
+ 
         request()->validate([
             'title' => 'required',
             'goalid' => 'required',

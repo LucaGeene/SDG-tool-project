@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <main class="mt-3">
     <div class="col-12 text-center">
         <h1 class="bg-light">Project aanpassen</h1>
     </div>
@@ -147,6 +148,7 @@
                                 </div>
                                             </div>
                                     </div>
+
                             </form>
                             <div class="form-group ml-3">
                                 <form method="POST" action="/adminProjecten/{{ $project->id }}">
@@ -157,13 +159,7 @@
                             </div>
                         </div>
                     </div>
-
-
-            <div class="col-md-4">
-
-            </div>
-
         </div>
     </div>
-
+    </main>>
 @endsection

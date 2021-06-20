@@ -93,13 +93,15 @@ class AdminProjectsController extends Controller
 
     public function update($id)
     {
-//        TODO maak dit werkend stefan!!!!!
+
         request()->validate([
             'title' => 'required',
-            'excerpt' => 'required',
             'goalid' => 'required',
+            'education' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'contact_name' => 'required',
             'verified' => 'required',
-            'body' => 'required'
         ]);
 
         $project = Project::find($id);
@@ -108,10 +110,12 @@ class AdminProjectsController extends Controller
         $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
+
+        $project->verified = request('verified');
         $project->reference_url = request('reference_url');
         $project->contact_name = request('contact_name');
         $project->contact_email = request('contact_email');
-        $test = request('verification');
+
         $project->save();
 
         return redirect('adminProjecten/' . $project->id);
