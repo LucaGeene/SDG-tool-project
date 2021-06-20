@@ -22,8 +22,14 @@
                 </div>
                 {{--             Filter section--}}
                 <form action="" method="GET">
-                    <h3 class="col-md-2">SDG-doelen:</h3>
+                    {{--                    Searchbar--}}
+                    <h3 class="col-md-2">Search:</h3>
+                    <input type="text" class="mb-1 col-md-10 form-control border-dark" name="search" id="search"/>
+
+
+
                     {{--                select SDG-goal--}}
+                    <h3 class="col-md-2">SDG-doelen:</h3>
                     <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="goalid" name="goalid">
                         <option></option>
                         @foreach($goals as $goal)
@@ -31,10 +37,11 @@
                         @endforeach
 
                     </select>
+
+                    {{--                    select education--}}
                     <div class="col-md-4">
                         <h3>Opleidingen:</h3>
                     </div>
-                    {{--                    select education--}}
                     <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="education" name="education">
                         <option></option>
                         @foreach($educations as $education)

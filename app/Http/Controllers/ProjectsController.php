@@ -19,7 +19,7 @@ class ProjectsController extends Controller
         //assign inputs from filter to variables
         $goalid = $request->input('goalid');
         $education = $request->input('education');
-
+        $search = $request->input('search');
 
         $projects_query = Project::latest();
 
@@ -28,6 +28,9 @@ class ProjectsController extends Controller
         }
         if ($education) {
             $projects_query = $projects_query->where('education', '=', $education);
+        }
+        if ($search) {
+            $projects_query = $projects_query->where('title', 'like' , '%'.$search.'%');
         }
 
         return view('projects.index', [

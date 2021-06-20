@@ -18,6 +18,7 @@ class AdminProjectsController extends Controller
     {
         $verify = $request->input('verify');
         $goalid = $request->input('goalid');
+        $search = $request->input('search');
 
         $projects_query = Project::latest();
 
@@ -26,6 +27,9 @@ class AdminProjectsController extends Controller
         }
         if ($verify) {
             $projects_query = $projects_query->where('verified', '=', $verify);
+        }
+        if ($search) {
+            $projects_query = $projects_query->where('title', 'like' , '%'.$search.'%');
         }
 
         return view('adminProjects.index', [

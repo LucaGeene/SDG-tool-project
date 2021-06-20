@@ -17,6 +17,10 @@
             <div class="form-group">
                 {{--            filter--}}
                 <form action="" method="GET">
+                    {{--                    Searchbar--}}
+                    <h3 class="col-md-2">Search:</h3>
+                    <input type="text" class="mb-1 col-md-10 form-control border-dark" name="search" id="search"/>
+
                     <label class="col-md-1 mb-3" for="verified">verified:</label>
                     <input class="form-check-input" type="radio" name="verify" value="1"/>
                     <label class="col-2 mb-3" for="verified">not verified:</label>
@@ -47,9 +51,6 @@
                     <button type="submit" class="btn btn-primary ml-3">Filter</button>
                 </form>
                 {{--            /filter--}}
-                <h5 class="ml-3">verified:</h5>
-
-                <h5 class="ml-3">goalid:</h5>
                 <a class="btn btn-primary ml-3" href="{{ url('/adminProjecten') }}">Reset</a>
             </div>
         </div>
