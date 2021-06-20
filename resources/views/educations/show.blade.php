@@ -3,7 +3,7 @@
 @section('content')
     <main>
         <div class="col-12 text-center">
-            <h1 class="bg-light">{{$educations->name}}</h1>
+            <h1 class="bg-light">{{$educations->name}} <a class="btn btn-primary mb-12  ml-3" href="{{$educations->url}}" target="_blank">Meer info</a></h1>
             <h5 class="text-dark">{{$educations->description}}</h5>
             <div class="container col-10">
                 <hr class="my-4" />
