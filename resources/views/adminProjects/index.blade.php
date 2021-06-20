@@ -16,12 +16,13 @@
         <hr class="my-3" />
         <div class=" border-primary border bg-light rounded">
         <h2 class="card-header bg-primary text-white">Filter</h2>
-        <div class="row">
-            <div class="col-md-4 mb-3 mt-3 ml-3">
+
+            <div class="col-md-4 mb-3 mt-3">
                 <a id='{{ Request::path() === 'projects' ? 'current-page' : '' }}' href="projecten/create" class="btn btn-primary">Project toevoegen</a>
             </div>
                 <form action="" method="GET">
                     {{--                        <input type="text" name="category" required/>--}}
+
                     <label class="col-md-1 mb-3" for="verified">verified:</label>
                     <input class="form-check-input" type="radio" name="verify" value="1"/>
                     <label class="col-2 mb-3" for="verified">not verified:</label>
@@ -50,16 +51,15 @@
                     </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary ml-3">Filter</button>
+                    <button type="submit" class="btn btn-primary ml-3 mb-3">Filter</button>
                 </form>
 
                 <h5 class="ml-3">verified:{{$filterarray[0]}}</h5>
 
                     <h5 class="ml-3">goalid:{{$filterarray[1]}}</h5>
-                    <a class="btn btn-primary ml-3"  href="{{ url('/adminProjects') }}">Reset</a>
+                    <a class="btn btn-primary ml-3 mb-3"  href="{{ url('/adminProjecten') }}">Reset</a>
                     </div>
                 </div>
-            </div>
 
     <div class="mt-3 col-md-12 offset-md-2">
         <div class="col-md-8">

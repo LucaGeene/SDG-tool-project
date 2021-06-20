@@ -6,7 +6,7 @@
         <div class="row">
         @foreach($goals as $goal)
             @if($goal->id == $id)
-                <div class="col-md-5 " style="background-color: {{$goal->color}}" id="subgoal">
+                <div class="col-md-5" style="background-color: {{$goal->color}}" id="subgoal">
                     <img id="goal" class="mb-3" src="/assets/{{$id}}.png">
 
                     <div class="box  ml-3">
@@ -38,16 +38,19 @@
             @endif
         @endforeach
 
-        <div class="row col-md-4 mt-2">
+        <div class="col-md-7 mt-2">
 
 
                     @foreach($projects as $project)
                         @if($project->verified == true && $project->goalid == $id)
-                            <div class="mb-3">
+                            <div class="col-md-6 mb-3">
                                 <div class="card">
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
-                                            src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                            style="height: 350px;
+                                                   object-fit: cover"
+                                            src="{{ asset('storage/images/'. $project->image_name) }}"
+                                            onerror="this.onerror=null; this.src='https://mdbootstrap.com/img/new/standard/nature/184.jpg'"
                                             class="img-fluid rounded"
                                         />
                                     </div>
@@ -62,11 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-{{--                            <div class="box">--}}
-{{--                                <li><a href="/projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>--}}
-{{--                                    <h5>{{$project->excerpt}}</h5></li>--}}
-
-{{--                            </div>--}}
                         @endif
                     @endforeach
         </div>

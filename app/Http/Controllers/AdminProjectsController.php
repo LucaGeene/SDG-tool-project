@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Education;
-use App\Models\Goal;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Goal;
+use App\Models\Education;
 
 class AdminProjectsController extends Controller
 {
@@ -16,6 +17,7 @@ class AdminProjectsController extends Controller
 
     public function index(Request $request)
     {
+
         $verify = $request->input('verify');
         $goalid = $request->input('goalid');
         $filter = array();
@@ -55,8 +57,9 @@ class AdminProjectsController extends Controller
     {
         $project = Project::find($id);
         $educations = Education::find($id);
+        $blogs = Blog::all();
 
-        return view('adminProjects.show', ['project' => $project, 'educations' => $educations]);
+        return view('adminProjects.show', ['project' => $project, 'educations' => $educations, 'blogs' => $blogs]);
     }
 
     public function store(Request $request)
@@ -71,9 +74,13 @@ class AdminProjectsController extends Controller
         $project = new Project();
         $project->goalid = request('goalid');
         $project->title = request('title');
+        $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
-        $project->verified = request('verified');
+        $project->reference_url = request('reference_url');
+        $project->contact_name = request('contact_name');
+        $project->contact_email = request('contact_email');
+//        $test = request('verification');
         $project->save();
 
         return redirect('huurders');
@@ -107,10 +114,12 @@ class AdminProjectsController extends Controller
         $project->education = request('education');
         $project->excerpt = request('excerpt');
         $project->body = request('body');
+
         $project->verified = request('verified');
         $project->reference_url = request('reference_url');
         $project->contact_name = request('contact_name');
         $project->contact_email = request('contact_email');
+
         $project->save();
 
         return redirect('adminProjecten/' . $project->id);

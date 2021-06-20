@@ -16,11 +16,11 @@
         </div>
 
         <hr/>
-        <div class="col-md-4">
-            <a id='current-page' class="btn btn-primary" href="{{$project->id}}/edit">edit</a>
-        </div>
-        <div class="container">
 
+        <div class="container">
+            <div class="col-md-4">
+                <a id='current-page' class="btn btn-primary" href="{{$project->id}}/edit">edit</a>
+            </div>
             <div class="row">
                 <div class="col-sm-7">
                     <br><h5>{{$project->body}}</h5>
@@ -41,7 +41,37 @@
                     width: 1px;">
                 </div>
                 <div class="col-4 mt-3">
-                    <p>{{$project->body}}</p>
+
+                    {{--                    BUTTON BELANGRIJK VOOR BLOGS--}}
+                    <a class="btn btn-primary" href="/adminProjecten/{{$project->id}}/blogs">Start je blog</a>
+                    <div class="row">
+                        @foreach($blogs as $blog)
+                            @if($blog->project_id === $project->id)
+
+
+                                <div class="box">
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            {{$blog->title}}
+                                        </h3>
+                                        <p class="h4 card-text">
+                                            {{$blog->activity_type}}
+                                        </p>
+                                        <p class="card-text">
+                                            {{$blog->excerpt}}
+                                            {{--TODO maximum erop zetten--}}
+                                        </p>
+
+                                        <a href="/projecten/{{$blog->project_id}}/blogs/{{$blog->id}}" class="btn btn-primary mb-3">Ga naar</a>
+                                        <p class="card-footer">
+                                            {{$blog->contact_name}}; <a>{{$blog->contact_email}}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="my-3"/>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

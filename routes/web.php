@@ -4,13 +4,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectsController;
 use App\Http\Controllers\goalController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\AdminEducationsController;
 use App\Http\Controllers\AdminProjectsController;
-use App\Models\Project;
-use App\Models\Goal;
+use App\Http\Controllers\BlogController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +20,7 @@ use App\Models\Goal;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//route voor dashboardController
+//route for dashboardController
 
 Route::get('/', [DashboardController::class, 'index' ]);
 //route voor login
@@ -29,25 +28,19 @@ Auth::routes();
 
 
 
-//routes voor doelen
-
 //routes for doelen
 
 Route::get('/doelen', [goalController::class, 'index']);
 Route::get('/doelen/{goal}', [goalController::class, 'show']);
 
-//routes voor opleidingen
+
 
 //routes for educations
 //READ
 Route::get('/opleidingen', [EducationController::class, 'index']);
 Route::get('/opleidingen/{id}', [EducationController::class, 'show']);
 
-//Route::resource('/opleidingen', EducationController::class);
-
-
 //routes for AdminEducations
-//Route::resource('/adminEducations', AdminEducationsController::class);
 //CREATE
 Route::get('/adminOpleidingen/create', [AdminEducationsController::class, 'create']);
 Route::post('/adminOpleidingen', [AdminEducationsController::class, 'store']);
@@ -61,7 +54,6 @@ Route::put('/adminOpleidingen/{id}', [AdminEducationsController::class, 'update'
 //DELETE
 Route::delete('/adminOpleidingen/{id}', [AdminEducationsController::class, 'destroy']);
 
-
 //routes for projects
 
 //CREATE
@@ -71,6 +63,19 @@ Route::post('/projecten', [ProjectsController::class, 'store']);
 //READ
 Route::get('/projecten', [ProjectsController::class, 'index']);
 Route::get('/projecten/{project}', [ProjectsController::class, 'show']);
+
+//route for blogs to add to projects
+
+//CREATE
+Route::get('/projecten/{project}/blogs/create', [BlogController::class, 'create']);
+Route::post('/projecten/{project}/blogs', [BlogController::class, 'store']);
+
+//READ
+Route::get('/projecten/{project}/blogs', [BlogController::class, 'index'])->name('show-all-blogs');
+Route::get('/projecten/{project}/blogs/{blog}', [BlogController::class, 'show']);
+
+//DELETE
+Route::delete('/projecten/{project}/blogs/{blog}', [BlogController::class, 'destroy']);
 
 //routes for adminProjects
 

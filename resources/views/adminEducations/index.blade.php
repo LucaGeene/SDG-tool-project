@@ -16,10 +16,11 @@
         <div class="row">
             <div class="col-md-8">
                 <ul>
+{{--                    Displays all the educations from the database                    --}}
                     @foreach($educations as $education)
                         <div class="box">
                             <li>
-                                <a href="adminEducations/{{$education->id}}"><b><h4>{{$education->name}}</h4></b></a>
+                                <a href="adminOpleidingen/{{$education->id}}"><b><h4>{{$education->name}}</h4></b></a>
                                 <h5>{{$education->description}}</h5><br>
                             </li>
                         </div>

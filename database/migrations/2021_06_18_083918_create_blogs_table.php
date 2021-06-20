@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->boolean('verified')->default(0);
-            $table->text('goalid'); // Needs go to, move to different table to link projects and goals/subgoals
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
             $table->string('title');
-            $table->string('education');
-            $table->text('category')->nullable();
+            $table->string('activity_type');
             $table->text('excerpt');
             $table->text('body');
             $table->string('reference_url')->nullable();
-            $table->string('image_name')->nullable();
+            $table->string('contact_name')->nullable();
+            $table->string('contact_email')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('blogs');
     }
 }

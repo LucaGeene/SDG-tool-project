@@ -2,33 +2,31 @@
 
 namespace Database\Factories;
 
-use App\Models\Project;
+use App\Models\Blog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProjectFactory extends Factory
+class BlogFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Project::class;
+    protected $model = Blog::class;
 
     /**
      * Define the model's default state.
      *
      * @return array
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'verified' => $this->faker->numberBetween(0,1),
-            'goalid' => $this->faker->numberBetween(1,17),
-            'title' => $this->faker->name(),
-            'education' => $this->faker->text(10),
+            'title' => $this->faker->text(),
+            'activity_type' => $this->faker->text(10),
+            'project_id' => $this->faker->numberBetween(1, 200),
             'excerpt' => $this->faker->text(200),
             'body' => $this->faker->text(1000),
-
 
         ];
     }

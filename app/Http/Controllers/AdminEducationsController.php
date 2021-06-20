@@ -115,8 +115,6 @@ class AdminEducationsController extends Controller
      * @param $id
      * @return Application|Redirector|RedirectResponse
      */
-
-
     public function destroy($id)
     {
         $education = Education::find($id);
