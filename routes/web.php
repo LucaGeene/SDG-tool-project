@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\AdminEducationsController;
 use App\Http\Controllers\AdminProjectsController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,17 +42,16 @@ Route::get('/opleidingen/{id}', [EducationController::class, 'show']);
 
 //routes for AdminEducations
 //CREATE
-Route::get('adminOpleidingen/create', [AdminEducationsController::class, 'create']);
-Route::post('adminOpleidingen', [AdminEducationsController::class, 'store']);
+Route::get('/adminOpleidingen/create', [AdminEducationsController::class, 'create']);
+Route::post('/adminOpleidingen', [AdminEducationsController::class, 'store']);
 //READ
-Route::get('adminOpleidingen', [AdminEducationsController::class, 'index']);
-Route::get('adminOpleidingen/{id}', [AdminEducationsController::class, 'show']);
+Route::get('/adminOpleidingen', [AdminEducationsController::class, 'index']);
+Route::get('/adminOpleidingen/{id}', [AdminEducationsController::class, 'show']);
 //UPDATE
-Route::get('adminOpleidingen/{education}/edit', [AdminEducationsController::class, 'edit']);
-Route::put('adminOpleidingen/{education}', [AdminEducationsController::class, 'update']);
+Route::get('/adminOpleidingen/{id}/edit', [AdminEducationsController::class, 'edit']);
+Route::put('/adminOpleidingen/{id}', [AdminEducationsController::class, 'update']);
 //DELETE
-Route::delete('adminOpleidingen/{education}', [AdminEducationsController::class, 'destroy']);
-
+Route::delete('/adminOpleidingen/{id}', [AdminEducationsController::class, 'destroy']);
 
 //routes for projects
 
@@ -62,6 +62,19 @@ Route::post('/projecten', [ProjectsController::class, 'store']);
 //READ
 Route::get('/projecten', [ProjectsController::class, 'index']);
 Route::get('/projecten/{project}', [ProjectsController::class, 'show']);
+
+//route for blogs to add to projects
+
+//CREATE
+Route::get('/projecten/{project}/blogs/create', [BlogController::class, 'create']);
+Route::post('/projecten/{project}/blogs', [BlogController::class, 'store']);
+
+//READ
+Route::get('/projecten/{project}/blogs', [BlogController::class, 'index'])->name('show-all-blogs');
+Route::get('/projecten/{project}/blogs/{blog}', [BlogController::class, 'show']);
+
+//DELETE
+Route::delete('/projecten/{project}/blogs/{blog}', [BlogController::class, 'destroy']);
 
 //routes for adminProjects
 

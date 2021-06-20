@@ -6,6 +6,7 @@ use App\Models\Education;
 use App\Models\Goal;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Blog;
 
 class ProjectsController extends Controller
 {
@@ -67,9 +68,11 @@ class ProjectsController extends Controller
 
     public function show($id)
     {
+        $educations = Education::find($id);
         $project = Project::find($id);
+        $blogs = Blog::all();
         if ($project->verified == true) {
-            return view('projects.show', ['project' => $project]);
+            return view('projects.show', ['project' => $project, 'educations' => $educations, 'blogs' => $blogs]);
         } else {
             return view('projects.noperm'); //idk if this works LOL test pls
         }
@@ -108,6 +111,7 @@ class ProjectsController extends Controller
             request()->file('image')->storeAs('public/images/', $image_name);
             $project->image_name = $image_name;
         }
+
         $test = request('verification');
         if ($test == "1234") {
             $project->verified = 1;

@@ -19,4 +19,9 @@ class Project extends Model
         return $this->belongsToMany(Education::class);
     }
 
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
+
 }

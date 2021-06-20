@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Goal;
@@ -16,6 +17,7 @@ class AdminProjectsController extends Controller
 
     public function index(Request $request)
     {
+
         $verify = $request->input('verify');
         $goalid = $request->input('goalid');
         $filter = array();
@@ -54,8 +56,10 @@ class AdminProjectsController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
+        $educations = Education::find($id);
+        $blogs = Blog::all();
 
-        return view('adminProjects.show', ['project' => $project]);
+        return view('adminProjects.show', ['project' => $project, 'educations' => $educations, 'blogs' => $blogs]);
     }
 
     public function store(Request $request)
@@ -76,7 +80,7 @@ class AdminProjectsController extends Controller
         $project->reference_url = request('reference_url');
         $project->contact_name = request('contact_name');
         $project->contact_email = request('contact_email');
-        $test = request('verification');
+//        $test = request('verification');
         $project->save();
 
         return redirect('huurders');

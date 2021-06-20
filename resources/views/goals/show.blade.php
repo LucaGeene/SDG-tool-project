@@ -7,9 +7,9 @@
         @foreach($goals as $goal)
             @if($goal->id == $id)
                 <div class="col-md-5" style="background-color: {{$goal->color}}" id="subgoal">
-                    <img id="goal" src="/assets/{{$id}}.png">
+                    <img id="goal" class="mb-3" src="/assets/{{$id}}.png">
 
-                    <div class="box ">
+                    <div class="box  ml-3">
 
                         <h3>{{$goal->title}}</h3>
                         <br>
@@ -19,16 +19,14 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading active">
-                            <h3 class="panel-title">
-                                <a class="btn" role="button" data-bs-toggle="collapse"
-                                   data-bs-target="#subgoalCollapse"
-                                   aria-expanded="false" aria-controls="subgoalCollapse"><h3 class="panel-title">Sub-doelen</h3></a>
+                            <h3 class="panel-title text-center mb-3">
+                                Sub-doelen</h3>
                             </h3>
-                            <div class="collapse" id="subgoalCollapse">
+                            <div>
 
                                 @foreach($subgoals as $subgoal)
                                     @if($subgoal->goal_id == $id)
-                                        <div class="row">
+                                        <div class="row ml-1">
                                             <h5><b>{{$subgoal->name}}:</b> {{$subgoal->description}}</h5>
                                         </div>
                                     @endif
@@ -40,16 +38,17 @@
             @endif
         @endforeach
 
-        <div class="row col-md-4 mt-2">
+        <div class="col-md-7 mt-2">
 
 
                     @foreach($projects as $project)
                         @if($project->verified == true && $project->goalid == $id)
-                            <div class="mb-3">
+                            <div class="col-md-6 mb-3">
                                 <div class="card">
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
-                                            style="height: 300px;"
+                                            style="height: 350px;
+                                                   object-fit: cover"
                                             src="{{ asset('storage/images/'. $project->image_name) }}"
                                             onerror="this.onerror=null; this.src='https://mdbootstrap.com/img/new/standard/nature/184.jpg'"
                                             class="img-fluid rounded"
@@ -66,11 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-{{--                            <div class="box">--}}
-{{--                                <li><a href="/projecten/{{$project->id}}"><b><h4>{{$project->title}}</h4></b></a><br>--}}
-{{--                                    <h5>{{$project->excerpt}}</h5></li>--}}
-
-{{--                            </div>--}}
                         @endif
                     @endforeach
         </div>

@@ -31,7 +31,7 @@ class ProjectFactory extends Factory
             'education' => $this->faker->word(),
             'excerpt' => $this->faker->text(200),
             'body' => $this->faker->text(1000),
-            'contact_name' => $this->faker->name(),
+
 
         ];
     }
