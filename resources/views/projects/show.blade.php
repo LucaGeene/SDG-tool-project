@@ -17,6 +17,7 @@
                         class="img-fluid rounded"
                     />
                     <br><h5>{{$project->body}}</h5>
+                    <h5>{{$project->goalid}}</h5>
                 </div>
             </div>
         </div>

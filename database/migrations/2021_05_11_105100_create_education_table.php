@@ -17,7 +17,7 @@ class CreateEducationTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->text('body')->nullable();
+            $table->string('url');
             $table->timestamps();
         });
     }

@@ -9,9 +9,7 @@
 
         <!--Main layout-->
         <main class="mt-3">
-
             <div class="container col-10">
-
                 <header class="masthead">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 text-center">
@@ -20,7 +18,6 @@
                         </div>
                     </div>
                 </header>
-
             </div>
             <div class="container col-10">
                 <hr class="mt-3"/>
@@ -60,7 +57,9 @@
                                 <div class="card">
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
-                                            src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                            style="height: 300px;"
+                                            src="{{ asset('storage/images/'. $project->image_name) }}"
+                                            onerror="this.onerror=null; this.src='https://mdbootstrap.com/img/new/standard/nature/184.jpg'"
                                             class="img-fluid rounded"
                                         />
                                     </div>
@@ -97,6 +96,7 @@
                         function gatherData(data) {
                             for (let i in data) {
                                 count.push(data[i].projectsum);
+                                console.log(count);
                             }
                         });
 

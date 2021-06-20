@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Education;
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
+use Psy\Util\Str;
 
 class ProjectFactory extends Factory
 {
@@ -25,7 +28,7 @@ class ProjectFactory extends Factory
             'verified' => $this->faker->numberBetween(0,1),
             'goalid' => $this->faker->numberBetween(1,17),
             'title' => $this->faker->name(),
-            'education' => $this->faker->text(10),
+            'education' => $this->faker->word(),
             'excerpt' => $this->faker->text(200),
             'body' => $this->faker->text(1000),
             'contact_name' => $this->faker->name(),

@@ -27,7 +27,7 @@
             <form action="" method="GET">
                 <h3 class="col-md-2">SDG-doelen:</h3>
                 <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="goalid" name="goalid">
-                    <option></option>
+                    <option>{{ old('goalid') }}</option>
                     @foreach($goals as $goal)
                         <option value="{{$goal->id}}">{{$goal->title}}</option>
                     @endforeach
@@ -37,7 +37,7 @@
                 <h3>Opleidingen:</h3>
                 </div>
                 <select type="text" class="custom-select col-md-4 mb-3  ml-3" id="education" name="education">
-                    <option></option>
+                    <option>{{ old('education') }}</option>
                     @foreach($educations as $education)
                         <option value="{{$education->name}}">{{$education->name}}</option>
                     @endforeach
@@ -51,11 +51,12 @@
     </div>
     </div>
 
+
     {{--Projecten lijst--}}
         <div class="mt-3 offset-2">
+
                     @foreach($projects as $project)
                         @if($project->verified == true)
-
                                 <div class="card-columns">
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img
@@ -69,17 +70,10 @@
                                         <h2 class="card-title">
                                             {{$project->title}}
                                         </h2>
-                                        <p class="h4 card-text">
-                                            {{$project->education}}
-                                        </p>
                                         <p class="card-text">
                                             {{$project->excerpt}}
                                         {{--TODO maximum erop zetten--}}
                                         </p>
-
-                                        <div class="container float-right">
-                                            <h5></h5>
-                                        </div>
                                         <a href="projecten/{{$project->id}}" class="btn btn-primary">Ga naar</a>
                                     </div>
                                 </div>

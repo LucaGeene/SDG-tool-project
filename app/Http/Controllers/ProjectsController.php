@@ -82,9 +82,10 @@ class ProjectsController extends Controller
         return view('projects.create', ['goals' => $goals, 'educations' => $education]);
     }
 
+
     public function store(Request $request)
     {
-
+ 
         request()->validate([
             'title' => 'required',
             'goalid' => 'required',
@@ -93,7 +94,6 @@ class ProjectsController extends Controller
             'body' => 'required',
             'contact_name' => 'required',
         ]);
-
         $project = new Project();
         $project->goalid = request('goalid');
         $project->title = request('title');
@@ -113,9 +113,6 @@ class ProjectsController extends Controller
             $project->verified = 1;
         }
         $project->save();
-
-
-
 
         return redirect('/projecten');
     }

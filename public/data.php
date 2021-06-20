@@ -2,6 +2,7 @@
 
 header('Content-Type: application/json');
 
+
 if ($this->app->environment('production')) {
     $db_connection = pg_connect(
         "host=ec2-34-250-16-127.eu-west-1.compute.amazonaws.com
@@ -13,6 +14,7 @@ if ($this->app->environment('production')) {
     foreach ($result as $row) {
         $data[] = $row;
     }
+
 
     pg_close($db_connection);
 
