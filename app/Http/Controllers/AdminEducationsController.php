@@ -72,7 +72,7 @@ class AdminEducationsController extends Controller
         $education->body = request('body');
         $education->save();
 
-        return redirect('adminEducations.index');
+        return redirect('/adminOpleidingen');
     }
 
     /**
@@ -120,6 +120,6 @@ class AdminEducationsController extends Controller
         $education = Education::find($id);
         $education->delete();
 
-        return redirect('/adminEducations.index');
+        return redirect('/adminOpleidingen');
     }
 }

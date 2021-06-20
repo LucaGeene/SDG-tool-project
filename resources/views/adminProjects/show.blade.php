@@ -23,7 +23,15 @@
             </div>
             <div class="row">
                 <div class="col-sm-7">
-                    <br><h5>{{$project->body}}</h5>
+                    <br>
+                    @if($project->verified == 1)
+                        <h3> &#9745; Dit project is geverifieerd</h3>
+                    @else
+                        <h3> &#9746; Dit project is <b style="color: red">niet</b> geverifieerd</h3>
+                    @endif
+                    <hr>
+                    <br>
+                    <h5>{{$project->body}}</h5>
                     <hr class="">
                     <div class="">
                         <div class="rounded"><a href="/doelen/{{$project->goalid}}">
@@ -31,8 +39,7 @@
                     </div>
                     <hr class="">
                     <div class="mt-3">
-                        <h3><a href="/opleidingen/{{$educations->id}}">{{$project->education}}</a></h3>
-                        <p>{{$educations->description}}</p>
+                        <h3>Opleiding: {{$project->education}}</h3>
                     </div>
                 </div>
                 <div class="col-1">

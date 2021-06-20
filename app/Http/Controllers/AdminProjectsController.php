@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use Illuminate\Http\Request;
-use App\Models\Project;
-use App\Models\Goal;
 use App\Models\Education;
+use App\Models\Goal;
+use App\Models\Project;
+use Illuminate\Http\Request;
 
 class AdminProjectsController extends Controller
 {
@@ -24,7 +24,7 @@ class AdminProjectsController extends Controller
         $filter[0] = $verify;
         $filter[1] = $goalid;
 
-        if ($filter[0] ==null && $filter[1] == null) {
+        if ($filter[0] == null && $filter[1] == null) {
             return view('adminProjects.index', [
                 'projects' => Project::latest()->get(), 'filterarray' => $filter
             ]);
@@ -62,38 +62,15 @@ class AdminProjectsController extends Controller
         return view('adminProjects.show', ['project' => $project, 'educations' => $educations, 'blogs' => $blogs]);
     }
 
-    public function store(Request $request)
-    {
-        request()->validate([
-            'title' => 'required',
-            'goalid' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]);
-
-        $project = new Project();
-        $project->goalid = request('goalid');
-        $project->title = request('title');
-        $project->education = request('education');
-        $project->excerpt = request('excerpt');
-        $project->body = request('body');
-        $project->reference_url = request('reference_url');
-        $project->contact_name = request('contact_name');
-        $project->contact_email = request('contact_email');
-//        $test = request('verification');
-        $project->save();
-
-        return redirect('huurders');
-    }
-
     public function edit($id)
     {
         $project = Project::find($id);
         $goals = Goal::all();
 
         $educations = Education::all();
-        return view('adminProjects.edit', ['project' => $project, 'educations'=> $educations, 'goals' =>  $goals]);
+        return view('adminProjects.edit', ['project' => $project, 'educations' => $educations, 'goals' => $goals]);
     }
+
 
     public function update($id)
     {

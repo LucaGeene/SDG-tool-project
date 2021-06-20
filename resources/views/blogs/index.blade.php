@@ -4,7 +4,7 @@
     <main class="mt-3">
         <div class="col-12 text-center">
             <button class="btn btn-primary" onclick="history.go(-1);">Terug naar project</button>
-            <h1 class="bg-light">Alle blogs voor: {{$project}}</h1>
+            <h1 class="bg-light">Alle blogs voor: {{$this_project->title}}</h1>
         </div>
 
         <div class="container">

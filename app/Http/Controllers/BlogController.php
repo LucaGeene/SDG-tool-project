@@ -17,10 +17,11 @@ class BlogController extends Controller
     public function index($project)
     {
 
+        $this_project = Project::find($project);
         $blogs = Blog::where('project_id', '=', $project)->latest()->get();
 
 //        dd($blogs);
-        return view( 'blogs.index', ['blogs' => $blogs, 'project' =>$project]);
+        return view( 'blogs.index', ['blogs' => $blogs, 'project' =>$project, 'this_project' => $this_project]);
     }
 
     /**
@@ -61,7 +62,7 @@ class BlogController extends Controller
         $blog->save();
 
 
-        return redirect()->route('show-all-blogs', ['project' =>$project]);
+        return redirect()->route('all-blogs', ['project' =>$project]);
     }
 
     /**

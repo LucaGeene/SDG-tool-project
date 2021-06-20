@@ -70,7 +70,7 @@ Route::get('/projecten/{project}/blogs/create', [BlogController::class, 'create'
 Route::post('/projecten/{project}/blogs', [BlogController::class, 'store']);
 
 //READ
-Route::get('/projecten/{project}/blogs', [BlogController::class, 'index'])->name('show-all-blogs');
+Route::get('/projecten/{project}/blogs', [BlogController::class, 'index'])->name('all-blogs');
 Route::get('/projecten/{project}/blogs/{blog}', [BlogController::class, 'show']);
 
 //DELETE

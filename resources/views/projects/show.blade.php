@@ -26,8 +26,7 @@
                     </div>
                     <hr>
                     <div class="mt-3">
-                        <h3><a href="/opleidingen/{{$educations->id}}">{{$project->education}}</a></h3>
-                        <p>{{$educations->description}}</p>
+                        <h3>Opleiding: {{$project->education}}</h3>
                     </div>
                 </div>
                 <div class="col-1">
@@ -59,6 +58,8 @@
 
                                 <a href="/projecten/{{$blog->project_id}}/blogs/{{$blog->id}}" class="btn btn-primary mb-3">Ga naar</a>
                                 <p class="card-footer">
+                                    Contact
+                                    <br>
                                     {{$blog->contact_name}}; <a>{{$blog->contact_email}}</a>
                                 </p>
                             </div>
