@@ -19,6 +19,7 @@ class AdminProjectsController extends Controller
     {
         //get all educations/goals from database for the dropdown selection
         $educations = Education::all();
+        DB
         $goals = Goal::all();
         //filter
         //store inputs from filter to variables

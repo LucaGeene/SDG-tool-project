@@ -112,6 +112,6 @@ class BlogController extends Controller
         $blogs = Blog::find($blog);
 
         $blogs->delete();
-        return redirect()->route('show-all-blogs', ['project' =>$project]);
+        return redirect()->route('all-blogs', ['project' =>$project]);
     }
 }
